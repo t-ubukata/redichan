@@ -2,8 +2,7 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-function App(): JSX.Element {
-  return (
+const App = (): JSX.Element => (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,8 +18,6 @@ function App(): JSX.Element {
           Learn React
         </a>
       </header>
-    </div>
-  )
-}
+    </div>)
 
 export default App
