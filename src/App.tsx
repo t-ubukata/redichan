@@ -1,10 +1,8 @@
 import React from 'react'
 import './App.css'
-import Head from './Head'
 
 const App = (): JSX.Element => (
   <div className="App">
-    <Head />
     <h1>redichan</h1>
     <p>
       redichan is a newborn social media. Please cheer us and bring your
