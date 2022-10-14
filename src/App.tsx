@@ -1,23 +1,13 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 
 const App = (): JSX.Element => (
   <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <h1>redichan</h1>
+      <p>redichan is a newborn social media. Please cheer us and bring your friends!</p>
+      <p>You&apos;re not traced down from other users because your user name is not shown.</p>
+      <p>Malicious users are suspended because redichan requires registration to post.</p>
+      <p>redichan suppoorts latest version of Google Chrome and Safari.</p>
   </div>);
 
 export default App
