@@ -14,10 +14,10 @@ const App = (): JSX.Element => (
       shown.
     </p>
     <p>
-      Malicious users are suspended because redichan requires registration to
-      post.
+      Malicious users will be suspended because redichan requires registration
+      to post.
     </p>
-    <p>redichan suppoorts latest version of Google Chrome and Safari.</p>
+    <p>redichan suppoorts the latest version of Google Chrome and Safari.</p>
   </div>
 );
 

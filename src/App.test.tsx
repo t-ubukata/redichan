@@ -12,10 +12,10 @@ test('renders learn react link', () => {
     `You're not traced down from other users because your user name is not shown.`
   );
   const pElement3 = screen.getByText(
-    'Malicious users are suspended because redichan requires registration to post.'
+    'Malicious users will be suspended because redichan requires registration to post.'
   );
   const pElement4 = screen.getByText(
-    'redichan suppoorts latest version of Google Chrome and Safari.'
+    'redichan suppoorts the latest version of Google Chrome and Safari.'
   );
   expect(headerElement).toBeInTheDocument();
   expect(pElement1).toBeInTheDocument();
