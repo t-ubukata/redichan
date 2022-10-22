@@ -27,7 +27,8 @@
     "lint": "eslint --ext .ts,.tsx ./src",
     "fix": "npm run format && npm run lint:fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "json-server": "json-server --watch db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [
