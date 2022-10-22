@@ -1,6 +1,12 @@
 {
-  "user": {
-    "id": 0,
-    "name": "John"
-  }
+  "en-boards": [
+    {
+      "name": "News",
+      "uri": "/api/threads/en-news"
+    },
+    {
+      "name": "Sensitive may",
+      "uri": "/api/threads/en-sensitive-may"
+    }
+  ]
 }
