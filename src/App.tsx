@@ -1,9 +1,8 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const App = (): JSX.Element => (
-  <div className="App">
+  <div className="App mx-auto">
     <h1>redichan</h1>
     <p>
       redichan is a newborn social media. Please cheer us and bring your

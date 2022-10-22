@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-/* import { within } from '@testing-library/react'; */
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-/* import consola from 'consola' */
 import RedichanNav from './RedichanNav';
 
 test('renders nav', async () => {
@@ -17,11 +15,23 @@ test('renders nav', async () => {
   expect(navDropDownElEn).toBeInTheDocument();
   expect(navDropDownElJa).toBeInTheDocument();
 
-  // TODO: Test NavDropdown.Item elements.
-
   const enBoards = screen.getByTestId('en-boards');
-  await user.click(enBoards);
-  /* const enNews = within(enBoards).getByTestId('en-news') */
+  const enBoardsButton = within(enBoards).getByRole('button');
 
-  /* expect(enNews).toBeInTheDocument() */
+  await user.click(enBoardsButton);
+  const enNews = within(enBoards).getByText('News');
+  const enSensitiveMay = within(enBoards).getByText('Sensitive may');
+
+  expect(enNews).toBeInTheDocument();
+  expect(enSensitiveMay).toBeInTheDocument();
+
+  const jaBoards = screen.getByTestId('ja-boards');
+  const jaBoardsButton = within(jaBoards).getByRole('button');
+
+  await user.click(jaBoardsButton);
+  const jaNews = within(jaBoards).getByText('ニュース');
+  const jaSensitiveMay = within(jaBoards).getByText('裏may');
+
+  expect(jaNews).toBeInTheDocument();
+  expect(jaSensitiveMay).toBeInTheDocument();
 });

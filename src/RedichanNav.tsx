@@ -17,14 +17,14 @@ const RedichanNav = (): JSX.Element => (
           id="navbarScrollingDropdown"
           data-testid="en-boards"
         >
-          <NavDropdown.Item href="#en-news" data-testid="en-news">
+          <NavDropdown.Item href="#en-news">
             News
           </NavDropdown.Item>
           <NavDropdown.Item href="#en-sensitive-may">
             Sensitive may
           </NavDropdown.Item>
         </NavDropdown>
-        <NavDropdown title="日本語" id="navbarScrollingDropdown">
+        <NavDropdown title="日本語" id="navbarScrollingDropdown" data-testid="ja-boards" >
           <NavDropdown.Item href="#ja-news">ニュース</NavDropdown.Item>
           <NavDropdown.Item href="#ja-sensitive-may">裏may</NavDropdown.Item>
         </NavDropdown>
