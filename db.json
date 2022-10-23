@@ -1,12 +1,14 @@
 {
   "en-boards": [
     {
+      "id": 0,
       "name": "News",
-      "uri": "/api/threads/en-news"
+      "uri": "/board/en-news"
     },
     {
+      "id": 1,
       "name": "Sensitive may",
-      "uri": "/api/threads/en-sensitive-may"
+      "uri": "/board/en-sensitive-may"
     }
   ]
 }
