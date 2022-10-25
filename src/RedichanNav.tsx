@@ -5,12 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import consola from'consola';
 import LOGO from './logo.svg';
 
-interface EnBoards {
-  id: number
-  name: string
-  path: string
-}
-
 const RedichanNav = (): JSX.Element => {
 
   const [enBoards, setEnBoards] = useState({});
@@ -18,8 +12,8 @@ const RedichanNav = (): JSX.Element => {
   useEffect(() => {
     const fetchEnBoards = async () => {
       const response = await fetch('/api/en-boards');
-      const json = await response.json() as EnBoards;
-      setEnBoards(json);
+      const result = await response.json() as object;
+      setEnBoards(result);
     };
     fetchEnBoards().catch(err => consola.error(err));
   });
