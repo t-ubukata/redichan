@@ -1,3 +1,4 @@
 {
+  "/api/*": "/$1",
   "/api/en-boards": "en-boards"
 }

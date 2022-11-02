@@ -15,12 +15,12 @@ test('renders nav', async () => {
   expect(navDropDownElEn).toBeInTheDocument();
   expect(navDropDownElJa).toBeInTheDocument();
 
-  const enBoards = screen.getByTestId('en-boards');
-  const enBoardsButton = within(enBoards).getByRole('button');
+  const enBoards = await screen.findByTestId('en-boards');
+  const enBoardsButton = await within(enBoards).findByRole('button');
 
   await user.click(enBoardsButton);
-  const enNews = within(enBoards).getByText('News');
-  const enSensitiveMay = within(enBoards).getByText('Sensitive may');
+  const enNews = await within(enBoards).findByText('News');
+  const enSensitiveMay = await within(enBoards).findByText('Sensitive may');
 
   expect(enNews).toBeInTheDocument();
   expect(enSensitiveMay).toBeInTheDocument();
@@ -29,8 +29,8 @@ test('renders nav', async () => {
   const jaBoardsButton = within(jaBoards).getByRole('button');
 
   await user.click(jaBoardsButton);
-  const jaNews = within(jaBoards).getByText('ニュース');
-  const jaSensitiveMay = within(jaBoards).getByText('裏may');
+  const jaNews = await within(jaBoards).findByText('ニュース');
+  const jaSensitiveMay = await within(jaBoards).findByText('裏may');
 
   expect(jaNews).toBeInTheDocument();
   expect(jaSensitiveMay).toBeInTheDocument();

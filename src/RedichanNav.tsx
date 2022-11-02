@@ -5,18 +5,24 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import consola from'consola';
 import LOGO from './logo.svg';
 
+interface EnBoard {
+  id: number;
+  name: string;
+  path: string;
+}
+
 const RedichanNav = (): JSX.Element => {
 
-  const [enBoards, setEnBoards] = useState({});
+  const [enBoards, setEnBoards] = useState(new Array<EnBoard>());
 
   useEffect(() => {
     const fetchEnBoards = async () => {
-      const response = await fetch('/api/en-boards');
-      const result = await response.json() as object;
+      const response = await fetch('http://localhost:4000/api/en-boards');
+      const result = await response.json() as Array<EnBoard>;
       setEnBoards(result);
     };
     fetchEnBoards().catch(err => consola.error(err));
-  });
+  }, []);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -32,12 +38,10 @@ const RedichanNav = (): JSX.Element => {
             id="navbarScrollingDropdown"
             data-testid="en-boards"
           >
-            <NavDropdown.Item href="#en-news">
-              News
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#en-sensitive-may">
-              Sensitive may
-            </NavDropdown.Item>
+           {enBoards.map((enBoard) => (
+            <NavDropdown.Item href={enBoard.path} key={enBoard.id}>
+              {enBoard.name}
+            </NavDropdown.Item>))}
           </NavDropdown>
           <NavDropdown title="日本語" id="navbarScrollingDropdown" data-testid="ja-boards" >
             <NavDropdown.Item href="#ja-news">ニュース</NavDropdown.Item>
