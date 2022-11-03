@@ -25,8 +25,8 @@ test('renders nav', async () => {
   expect(enNews).toBeInTheDocument();
   expect(enSensitiveMay).toBeInTheDocument();
 
-  const jaBoards = screen.getByTestId('ja-boards');
-  const jaBoardsButton = within(jaBoards).getByRole('button');
+  const jaBoards = await screen.findByTestId('ja-boards');
+  const jaBoardsButton = await within(jaBoards).findByRole('button');
 
   await user.click(jaBoardsButton);
   const jaNews = await within(jaBoards).findByText('ニュース');

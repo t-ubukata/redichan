@@ -11,8 +11,13 @@ interface EnBoard {
   path: string;
 }
 
-const RedichanNav = (): JSX.Element => {
+interface JaBoard {
+  id: number;
+  name: string;
+  path: string;
+}
 
+const RedichanNav = (): JSX.Element => {
   const [enBoards, setEnBoards] = useState(new Array<EnBoard>());
 
   useEffect(() => {
@@ -23,6 +28,18 @@ const RedichanNav = (): JSX.Element => {
     };
     fetchEnBoards().catch(err => consola.error(err));
   }, []);
+
+  const [jaBoards, setJaBoards] = useState(new Array<JaBoard>());
+
+  useEffect(() => {
+    const fetchJaBoards = async () => {
+      const response = await fetch('http://localhost:4000/api/ja-boards');
+      const result = await response.json() as Array<JaBoard>;
+      setJaBoards(result);
+    };
+    fetchJaBoards().catch(err => consola.error(err));
+  }, []);
+
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -38,14 +55,16 @@ const RedichanNav = (): JSX.Element => {
             id="navbarScrollingDropdown"
             data-testid="en-boards"
           >
-           {enBoards.map((enBoard) => (
-            <NavDropdown.Item href={enBoard.path} key={enBoard.id}>
-              {enBoard.name}
-            </NavDropdown.Item>))}
+            {enBoards.map((enBoard) => (
+              <NavDropdown.Item href={enBoard.path} key={enBoard.id}>
+                {enBoard.name}
+              </NavDropdown.Item>))}
           </NavDropdown>
           <NavDropdown title="日本語" id="navbarScrollingDropdown" data-testid="ja-boards" >
-            <NavDropdown.Item href="#ja-news">ニュース</NavDropdown.Item>
-            <NavDropdown.Item href="#ja-sensitive-may">裏may</NavDropdown.Item>
+            {jaBoards.map((jaBoard) => (
+               <NavDropdown.Item href={jaBoard.path} key={jaBoard.id}>
+                 {jaBoard.name}
+               </NavDropdown.Item>))}
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

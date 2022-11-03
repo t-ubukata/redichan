@@ -10,5 +10,17 @@
       "name": "Sensitive may",
       "uri": "/board/en-sensitive-may"
     }
+  ],
+  "ja-boards": [
+    {
+      "id": 0,
+      "name": "ニュース",
+      "uri": "/board/ja-news"
+    },
+    {
+      "id": 1,
+      "name": "裏may",
+      "uri": "/board/ja-sensitive-may"
+    }
   ]
 }
