@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Home from './Home';
 
 test('renders learn react link', () => {
-  render(<App />);
+  render(<Home />);
   const headerElement = screen.getByText('redichan');
   const pElement1 = screen.getByText(
     'redichan is a newborn social media. Please cheer us and bring your friends!'

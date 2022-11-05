@@ -1,4 +1,7 @@
 {
   "/api/*": "/$1",
-  "/api/en-boards": "en-boards"
+  "/api/en-boards": "en-boards",
+  "/api/ja-boards": "ja-boards",
+  "/api/board/en-news/threads/latest": "board-en-news-threads-latest",
+  "/api/board/ja-news/threads/latest": "board-ja-news-threads-latest"
 }
