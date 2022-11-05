@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import RedichanNav from 'RedichanNav';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -51,60 +53,118 @@ const Board = (): JSX.Element => {
 
   // TODO: Use fetched data.
   return (
-    <div>
+    <div className="Board mx-auto">
+      <RedichanNav />
       <Container>
         <Row>
           <Col>This is a thread 0. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 1. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 2. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 3. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 4. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 5. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 6. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 7. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 8. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
       <Container>
         <Row>
           <Col>This is a thread 9. This is a very very very long first line.</Col>
         </Row>
       </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 10. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 11. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 12. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 13. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 14. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
+      <Container>
+        <Row>
+          <Col>This is a thread 15. This is a very very very long first line.</Col>
+        </Row>
+      </Container>
+      <hr/>
 
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <p>+</p>
+      <Navbar bg="dark" variant="dark" fixed="bottom">
+          <Nav  className="me-auto">
+            <Container>
+              <Row>
+                <Col>
+                  <Nav.Link href="#search" className="ms-auto">🔍</Nav.Link>
+                </Col>
+                <Col>
+                  <Nav.Link href="#start-a-thread" className="ms-auto">➕</Nav.Link>
+                </Col>
+              </Row>
+            </Container>
+          </Nav>
       </Navbar>
     </div>
   );
