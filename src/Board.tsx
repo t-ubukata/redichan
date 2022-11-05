@@ -31,7 +31,7 @@ const Board = (): JSX.Element => {
 
   useEffect(() => {
     const fetchEnThreadsLatest = async () => {
-      const response = await fetch('http://localhost:4000/api/board/en-news/threads/latest');
+      const response = await fetch('http://localhost:4000/board/en-news/threads/latest');
       const result = (await response.json()) as Array<EnThread>;
       setEnThreadsLatest(result);
     };
@@ -42,7 +42,7 @@ const Board = (): JSX.Element => {
 
   useEffect(() => {
     const fetchJaThreadsLatest = async () => {
-      const response = await fetch('http://localhost:4000/api/board/ja-news/threads/latest');
+      const response = await fetch('http://localhost:4000/board/ja-news/threads/latest');
       const result = (await response.json()) as Array<JaThread>;
       setJaThreadsLatest(result);
     };
@@ -54,52 +54,52 @@ const Board = (): JSX.Element => {
     <div>
       <Container>
         <Row>
-          <Col>This is a thread 0. This is a very long first line.</Col>
+          <Col>This is a thread 0. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 1. This is a very long first line.</Col>
+          <Col>This is a thread 1. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 2. This is a very long first line.</Col>
+          <Col>This is a thread 2. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 3. This is a very long first line.</Col>
+          <Col>This is a thread 3. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 4. This is a very long first line.</Col>
+          <Col>This is a thread 4. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 5. This is a very long first line.</Col>
+          <Col>This is a thread 5. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 6. This is a very long first line.</Col>
+          <Col>This is a thread 6. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 7. This is a very long first line.</Col>
+          <Col>This is a thread 7. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 8. This is a very long first line.</Col>
+          <Col>This is a thread 8. This is a very very very long first line.</Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col>This is a thread 9. This is a very long first line.</Col>
+          <Col>This is a thread 9. This is a very very very long first line.</Col>
         </Row>
       </Container>
 
