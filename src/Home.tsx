@@ -6,7 +6,6 @@ const Home = (): JSX.Element => (
   <div>
     <RedichanNav />
     <div className="Home mx-auto">
-      <h1>redichan</h1>
       <p>
         redichan is a newborn social media. Please cheer us and bring your
         friends!

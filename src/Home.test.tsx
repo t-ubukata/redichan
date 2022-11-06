@@ -4,7 +4,6 @@ import Home from './Home';
 
 test('renders learn react link', () => {
   render(<Home />);
-  const headerElement = screen.getByText('redichan');
   const pElement1 = screen.getByText(
     'redichan is a newborn social media. Please cheer us and bring your friends!'
   );
@@ -17,7 +16,6 @@ test('renders learn react link', () => {
   const pElement4 = screen.getByText(
     'redichan suppoorts the latest version of Google Chrome and Safari.'
   );
-  expect(headerElement).toBeInTheDocument();
   expect(pElement1).toBeInTheDocument();
   expect(pElement2).toBeInTheDocument();
   expect(pElement3).toBeInTheDocument();
