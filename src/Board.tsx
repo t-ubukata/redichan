@@ -152,7 +152,7 @@ const Board = (): JSX.Element => {
       </Container>
       <hr/>
 
-      <Navbar bg="dark" variant="dark" fixed="bottom">
+      <Navbar bg="light" variant="light" fixed="bottom">
           <Nav  className="me-auto">
             <Container>
               <Row>
