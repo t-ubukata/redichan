@@ -10,9 +10,11 @@ Redichan web frontend application.
 - git
 - Nods.js v18.x
 
-```git clone https://github.com/t-ubukata/redichan_frontend.git```
-```cd redichan_frontend```
-```npm install```
+```
+git clone https://github.com/t-ubukata/redichan_frontend.git
+cd redichan_frontend
+npm install
+```
 
 ## Available Scripts
 
