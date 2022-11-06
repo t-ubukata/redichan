@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# redichan_frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Redichan web frontend application.
+
+## Installation
+
+### Prerequisites
+
+- Ubuntu or MacOS
+- git
+- Nods.js v18.x
+
+```git clone https://github.com/t-ubukata/redichan_frontend.git```
+```cd redichan_frontend```
+```npm install```
 
 ## Available Scripts
 
@@ -18,6 +30,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Please note it you need to ```npm run json-server``` before testing.
 
 ### `npm run build`
 
@@ -39,8 +52,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `npm run lint`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs ESLint.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `npm run fix`
+
+Runs ```npm run format && npm run lint:fix```.
+
+### `npm run format`
+
+Runs Prettier.
+
+### `npm run lint:fix`
+
+Runs ```eslint --fix 'src/**/*.{js,jsx,ts,tsx}'```
+
+### `npm run json-server`
+
+Runs mock API server, which is ```json-server --watch db.json --routes routes.json --middlewares middleware.js --port 4000```.
+
