@@ -85,18 +85,10 @@ const Board = (): JSX.Element => {
         <div className="bg-light border">This is a thread 25. This is a very very very very long first line.</div>
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
-          <Nav className="me-auto">
-            <Container>
-              <Row>
-                <Col>
-                  <Nav.Link href="#search" className="ms-auto">🔍</Nav.Link>
-                </Col>
-                <Col>
-                  <Nav.Link href="#start-a-thread" className="ms-auto">➕</Nav.Link>
-                </Col>
-              </Row>
-            </Container>
-          </Nav>
+        <Nav className="ms-auto">
+          <Nav.Link href="#search">🔍</Nav.Link>
+          <Nav.Link href="#start-a-thread">➕</Nav.Link>
+        </Nav>
       </Navbar>
     </div>
   );
