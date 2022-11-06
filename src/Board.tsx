@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -55,103 +56,34 @@ const Board = (): JSX.Element => {
   return (
     <div className="Board mx-auto">
       <RedichanNav />
-      <Container>
-        <Row>
-          <Col>This is a thread 0. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 1. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 2. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 3. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 4. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 5. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 6. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 7. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 8. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 9. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 10. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 11. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 12. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 13. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 14. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-      <Container>
-        <Row>
-          <Col>This is a thread 15. This is a very very very long first line.</Col>
-        </Row>
-      </Container>
-      <hr/>
-
+      <Stack className="mb-5">
+        <div className="bg-light border">This is a thread 0. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 1. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 2. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 3. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 4. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 5. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 6. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 7. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 8. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 9. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 10. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 11. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 12. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 13. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 14. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 15. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 16. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 17. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 18. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 19. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 20. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 21. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 22. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 23. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 24. This is a very very very very long first line.</div>
+        <div className="bg-light border">This is a thread 25. This is a very very very very long first line.</div>
+      </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
           <Nav  className="me-auto">
             <Container>
