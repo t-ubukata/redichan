@@ -42,7 +42,7 @@ const RedichanNav = (): JSX.Element => {
   }, []);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Navbar.Brand href="/">
         <img src={LOGO} width="30" height="30" alt="React Bootstrap logo" />
         redichan
