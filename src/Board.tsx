@@ -32,7 +32,7 @@ const Board = (): JSX.Element => {
 
   useEffect(() => {
     const fetchEnThreadsLatest = async () => {
-      const response = await fetch('http://localhost:4000/board/en-news/threads/latest');
+      const response = await fetch('http://localhost:4000/board-en-news-threads-latest');
       const result = (await response.json()) as Array<EnThread>;
       setEnThreadsLatest(result);
     };
@@ -43,7 +43,7 @@ const Board = (): JSX.Element => {
 
   useEffect(() => {
     const fetchJaThreadsLatest = async () => {
-      const response = await fetch('http://localhost:4000/board/ja-news/threads/latest');
+      const response = await fetch('http://localhost:4000/board-ja-news-threads-latest');
       const result = (await response.json()) as Array<JaThread>;
       setJaThreadsLatest(result);
     };
