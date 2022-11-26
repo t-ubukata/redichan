@@ -23,7 +23,7 @@
       "uri": "/board/ja-sensitive-may"
     }
   ],
-  "board-en-news-threads-latest": [
+  "threads": [
     {
       "id": 0,
       "poster": null,
@@ -105,7 +105,7 @@
       "utc-timestamp": "2022-01-01T00:00:00"
     }
   ],
-  "ja-news-threads-latest": [
+  "board-ja-news-threads-latest": [
     {
       "id": 0,
       "poster": null,
