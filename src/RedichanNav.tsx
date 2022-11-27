@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import consola from 'consola';
 import LOGO from './logo.svg';
@@ -23,7 +22,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchEnBoards = async () => {
-      const response = await fetch('http://localhost:4000/api/en-boards');
+      const response = await fetch('http://localhost:4000/enBoards');
       const result = (await response.json()) as Array<EnBoard>;
       setEnBoards(result);
     };
@@ -34,7 +33,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchJaBoards = async () => {
-      const response = await fetch('http://localhost:4000/api/ja-boards');
+      const response = await fetch('http://localhost:4000/jaBoards');
       const result = (await response.json()) as Array<JaBoard>;
       setJaBoards(result);
     };

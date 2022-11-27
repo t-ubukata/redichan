@@ -29,7 +29,8 @@ module.exports = {
    ".eslintrc.js"
  ],
  rules: {
-   'semi': ['error', 'always'],
+   'semi': ['warn', 'always'],
+   "react-hooks/exhaustive-deps": "off",
    'no-use-before-define': "off",
    "@typescript-eslint/no-use-before-define": "off",
    'import/prefer-default-export': "off",
