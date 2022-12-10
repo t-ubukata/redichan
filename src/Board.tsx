@@ -10,22 +10,22 @@ import Navbar from 'react-bootstrap/Navbar';
 import consola from 'consola';
 
 interface Props {
-  name: string
+  name: string;
 }
 
 interface Thread {
-  id: number,
-  poster: string,
-  zeroPostTexts: Array<string>,
-  attachmentPath: string,
-  postNumber: number,
-  UTCTimestamp: Date
+  id: number;
+  poster: string;
+  zeroPostTexts: Array<string>;
+  attachmentPath: string;
+  postNumber: number;
+  UTCTimestamp: Date;
 }
 
 const Board = (props: Props): JSX.Element => {
-  const {name} = props;
+  const { name } = props;
   let threadsURI = '';
-  switch(name) {
+  switch (name) {
     case 'enNews':
       threadsURI = 'http://localhost:4000/en-news/threads/latest';
       break;
@@ -64,9 +64,7 @@ const Board = (props: Props): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
-          <div className="bg-light border">
-            {thread.zeroPostTexts[0]}
-          </div>
+          <div className="bg-light border">{thread.zeroPostTexts[0]}</div>
         ))}
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">

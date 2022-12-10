@@ -6,15 +6,15 @@ import consola from 'consola';
 import LOGO from './logo.svg';
 
 interface EnBoard {
-  id: number
-  name: string
-  path: string
+  id: number;
+  name: string;
+  path: string;
 }
 
 interface JaBoard {
-  id: number
-  name: string
-  path: string
+  id: number;
+  name: string;
+  path: string;
 }
 
 const RedichanNav = (): JSX.Element => {

@@ -11,14 +11,16 @@ const Home = (): JSX.Element => (
         friends!
       </p>
       <p>
-        🏃 You&apos;re not traced down from other users because your user name is not
-        shown.
+        🏃 You&apos;re not traced down from other users because your user name
+        is not shown.
       </p>
       <p>
-        👿 Malicious users will be suspended because redichan requires registration
-        to post.
+        👿 Malicious users will be suspended because redichan requires
+        registration to post.
       </p>
-      <p>🌐 redichan suppoorts the latest version of Google Chrome and Safari.</p>
+      <p>
+        🌐 redichan suppoorts the latest version of Google Chrome and Safari.
+      </p>
     </div>
   </div>
 );
