@@ -16,7 +16,7 @@ interface Props {
 interface Thread {
   id: number,
   poster: string,
-  zeroPost: string,
+  zeroPostTexts: Array<string>,
   attachmentPath: string,
   postNumber: number,
   UTCTimestamp: Date
@@ -65,7 +65,7 @@ const Board = (props: Props): JSX.Element => {
       <Stack className="mb-5">
         {threads.map((thread) => (
           <div className="bg-light border">
-            {thread.zeroPost}
+            {thread.zeroPostTexts[0]}
           </div>
         ))}
       </Stack>
