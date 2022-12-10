@@ -59,7 +59,6 @@ const Board = (props: Props): JSX.Element => {
   /*   fetchJaThreadsLatest().catch((err) => consola.error(err)); */
   /* }, []); */
 
-  // TODO: Use fetched data.
   return (
     <div className="Board mx-auto">
       <RedichanNav />
