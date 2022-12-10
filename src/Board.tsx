@@ -27,10 +27,10 @@ const Board = (props: Props): JSX.Element => {
   let threadsURI = '';
   switch(name) {
     case 'enNews':
-      threadsURI = 'http://localhost:4000/boardEnNewsThreadsLatest';
+      threadsURI = 'http://localhost:4000/en-news/threads/latest';
       break;
     case 'jaNews':
-      threadsURI = 'http://localhost:4000/boardJaNewsThreadsLatest';
+      threadsURI = 'http://localhost:4000/ja-news/threads/latest';
       break;
     default:
       threadsURI = '';
