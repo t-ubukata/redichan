@@ -6,36 +6,30 @@ import { Link } from "react-router-dom";
 import consola from 'consola';
 import LOGO from './logo.svg';
 
-interface EnBoard {
-  id: number;
-  name: string;
-  path: string;
-}
-
-interface JaBoard {
+interface Board {
   id: number;
   name: string;
   path: string;
 }
 
 const RedichanNav = (): JSX.Element => {
-  const [enBoards, setEnBoards] = useState(new Array<EnBoard>());
+  const [enBoards, setEnBoards] = useState(new Array<Board>());
 
   useEffect(() => {
     const fetchEnBoards = async () => {
       const response = await fetch('http://localhost:4000/enBoards');
-      const result = (await response.json()) as Array<EnBoard>;
+      const result = (await response.json()) as Array<Board>;
       setEnBoards(result);
     };
     fetchEnBoards().catch((err) => consola.error(err));
   }, []);
 
-  const [jaBoards, setJaBoards] = useState(new Array<JaBoard>());
+  const [jaBoards, setJaBoards] = useState(new Array<Board>());
 
   useEffect(() => {
     const fetchJaBoards = async () => {
       const response = await fetch('http://localhost:4000/jaBoards');
-      const result = (await response.json()) as Array<JaBoard>;
+      const result = (await response.json()) as Array<Board>;
       setJaBoards(result);
     };
     fetchJaBoards().catch((err) => consola.error(err));
