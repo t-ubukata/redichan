@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from "react-router-dom";
 import consola from 'consola';
 import LOGO from './logo.svg';
 
@@ -55,7 +56,7 @@ const RedichanNav = (): JSX.Element => {
             data-testid="en-boards"
           >
             {enBoards.map((enBoard) => (
-              <NavDropdown.Item href={enBoard.path} key={enBoard.id}>
+              <NavDropdown.Item as={Link} to={enBoard.path} key={enBoard.id}>
                 {enBoard.name}
               </NavDropdown.Item>
             ))}
@@ -66,7 +67,7 @@ const RedichanNav = (): JSX.Element => {
             data-testid="ja-boards"
           >
             {jaBoards.map((jaBoard) => (
-              <NavDropdown.Item href={jaBoard.path} key={jaBoard.id}>
+              <NavDropdown.Item as={Link} to={jaBoard.path} key={jaBoard.id}>
                 {jaBoard.name}
               </NavDropdown.Item>
             ))}
