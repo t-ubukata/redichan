@@ -48,17 +48,6 @@ const Board = (props: Props): JSX.Element => {
     fetchThreads().catch((err) => consola.error(err));
   }, []);
 
-  /* const [jaThreadsLatest, setJaThreadsLatest] = useState(new Array<Thread>()); */
-  /*  */
-  /* useEffect(() => { */
-  /*   const fetchJaThreadsLatest = async () => { */
-  /*     const response = await fetch('http://localhost:4000/boardJaNewsThreadsLatest'); */
-  /*     const result = (await response.json()) as Array<Thread>; */
-  /*     setJaThreadsLatest(result); */
-  /*   }; */
-  /*   fetchJaThreadsLatest().catch((err) => consola.error(err)); */
-  /* }, []); */
-
   return (
     <div className="Board mx-auto">
       <RedichanNav />
