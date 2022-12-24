@@ -53,7 +53,7 @@ const Board = (props: Props): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
-          <div className="bg-light border">{thread.zeroPostTexts[0]}</div>
+          <div className="bg-light border"><span>img </span><span>{thread.zeroPostTexts[0]}</span><span> {thread.postNumber}</span></div>
         ))}
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
