@@ -13,8 +13,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/board/en-news" element={<Board name="enNews" />} />
-      <Route path="/board/ja-news" element={<Board name="jaNews" />} />
+      <Route path="/board/en/news" element={<Board name="enNews" />} />
+      <Route path="/board/ja/news" element={<Board name="jaNews" />} />
     </Routes>
   </BrowserRouter>
 );

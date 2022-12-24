@@ -3,24 +3,24 @@
     {
       "id": 0,
       "name": "News",
-      "path": "/board/en-news"
+      "path": "/board/en/news"
     },
     {
       "id": 1,
       "name": "Sensitive may",
-      "path": "/board/en-sensitive-may"
+      "path": "/board/en/sensitive-may"
     }
   ],
   "jaBoards": [
     {
       "id": 0,
       "name": "ニュース",
-      "path": "/board/ja-news"
+      "path": "/board/ja/news"
     },
     {
       "id": 1,
       "name": "裏may",
-      "path": "/board/ja-sensitive-may"
+      "path": "/board/ja/sensitive-may"
     }
   ],
   "boardEnNewsThreadsLatest": [

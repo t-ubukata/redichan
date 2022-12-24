@@ -1,8 +1,8 @@
 {
   "/api/board/*": "/$1",
   "/api/*": "/$1",
-  "/en-boards": "/enBoards",
-  "/ja-boards": "/jaBoards",
-  "/en-news/threads/latest": "/boardEnNewsThreadsLatest",
-  "/ja-news/threads/latest": "/boardJaNewsThreadsLatest"
+  "/en/boards": "/enBoards",
+  "/ja/boards": "/jaBoards",
+  "/en/news/threads/latest": "/boardEnNewsThreadsLatest",
+  "/ja/news/threads/latest": "/boardJaNewsThreadsLatest"
 }
