@@ -33,7 +33,7 @@ const Board = (props: Props): JSX.Element => {
       threadsURI = 'http://localhost:4000/ja-news/threads/latest';
       break;
     default:
-      threadsURI = '';
+      throw new Error('Invalid board name');
       break;
   }
 
