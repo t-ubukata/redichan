@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import consola from 'consola';
-import LOGO from './logo.svg';
+import LOGO from 'logo.svg';
 
 interface Board {
   id: number;

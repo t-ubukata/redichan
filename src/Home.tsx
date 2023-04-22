@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+import 'Home.css';
 import RedichanNav from 'RedichanNav';
 
 const Home = (): JSX.Element => (
