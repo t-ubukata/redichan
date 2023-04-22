@@ -6,9 +6,9 @@ import Stack from 'react-bootstrap/Stack';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import consola from 'consola';
-/* import Container from 'react-bootstrap/Container'; */
-/* import Row from 'react-bootstrap/Row'; */
-/* import Col from 'react-bootstrap/Col'; */
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 interface Props {
   name: string;
@@ -54,10 +54,12 @@ const Board = (props: Props): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
-          <div className="bg-light border">
-            <span>{thread.zeroPostTexts[0]}</span>
-            <span> {thread.postNumber}</span>
-          </div>
+          <Container className="bg-light border">
+            <Row>
+              <Col className="col-10">{thread.zeroPostTexts[0]}</Col>
+              <Col> {thread.postNumber}</Col>
+            </Row>
+          </Container>
         ))}
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
