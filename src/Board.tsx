@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Stack from 'react-bootstrap/Stack';
@@ -36,7 +37,7 @@ const Board = (props: Props): JSX.Element => {
       throw new Error('Invalid board name');
       break;
   }
-
+  const location = useLocation();
   const [threads, setThreads] = useState(new Array<Thread>());
 
   useEffect(() => {
@@ -46,7 +47,7 @@ const Board = (props: Props): JSX.Element => {
       setThreads(result);
     };
     fetchThreads().catch((err) => consola.error(err));
-  }, []);
+  }, [location]);
 
   return (
     <div className="Board mx-auto">
