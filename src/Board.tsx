@@ -27,10 +27,10 @@ const Board = (props: Props): JSX.Element => {
   let threadsURI = '';
   switch (name) {
     case 'enNews':
-      threadsURI = 'http://localhost:4000/en/news/threads/latest';
+      threadsURI = 'http://localhost:4000/api/board/en/news/threads/latest';
       break;
     case 'jaNews':
-      threadsURI = 'http://localhost:4000/ja/news/threads/latest';
+      threadsURI = 'http://localhost:4000/api/board/ja/news/threads/latest';
       break;
     default:
       throw new Error('Invalid board name');
@@ -54,7 +54,6 @@ const Board = (props: Props): JSX.Element => {
       <Stack className="mb-5">
         {threads.map((thread) => (
           <div className="bg-light border">
-            <span>img </span>
             <span>{thread.zeroPostTexts[0]}</span>
             <span> {thread.postNumber}</span>
           </div>
