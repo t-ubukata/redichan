@@ -7,8 +7,8 @@
     },
     {
       "id": 1,
-      "name": "Sensitive may",
-      "path": "/board/en/sensitive-may"
+      "name": "may",
+      "path": "/board/en/may"
     }
   ],
   "jaBoards": [
@@ -19,8 +19,8 @@
     },
     {
       "id": 1,
-      "name": "裏may",
-      "path": "/board/ja/sensitive-may"
+      "name": "may",
+      "path": "/board/ja/may"
     }
   ],
   "boardEnNewsThreadsLatest": [

@@ -17,7 +17,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchEnBoards = async () => {
-      const response = await fetch('http://localhost:4000/en/boards');
+      const response = await fetch('http://localhost:4000/api/en/boards');
       const result = (await response.json()) as Array<Board>;
       setEnBoards(result);
     };
@@ -28,7 +28,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchJaBoards = async () => {
-      const response = await fetch('http://localhost:4000/ja/boards');
+      const response = await fetch('http://localhost:4000/api/ja/boards');
       const result = (await response.json()) as Array<Board>;
       setJaBoards(result);
     };
