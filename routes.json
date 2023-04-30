@@ -2,5 +2,6 @@
   "/api/en/boards": "/enBoards",
   "/api/ja/boards": "/jaBoards",
   "/api/board/en/news/threads/latest": "/boardEnNewsThreadsLatest",
-  "/api/board/ja/news/threads/latest": "/boardJaNewsThreadsLatest"
+  "/api/board/ja/news/threads/latest": "/boardJaNewsThreadsLatest",
+  "/api/thread/0": "/thread0"
 }
