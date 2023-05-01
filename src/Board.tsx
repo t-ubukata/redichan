@@ -18,7 +18,7 @@ interface Props {
 interface Thread {
   id: number;
   poster: string;
-  zeroPostTexts: Array<string>;
+  zeroPostText: string;
   attachmentPath: string;
   postNumber: number;
   UTCTimestamp: Date;
@@ -58,7 +58,7 @@ const Board = (props: Props): JSX.Element => {
           <Container className="bg-light border">
             <Row>
               <Col className="col-10 thread-title">
-                {thread.zeroPostTexts[0]}
+                {thread.zeroPostText}
               </Col>
               <Col> {thread.postNumber}</Col>
             </Row>
