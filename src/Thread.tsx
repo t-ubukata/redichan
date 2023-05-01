@@ -25,8 +25,6 @@ const Thread = (): JSX.Element => {
       `Expected 'id' to be defined, but received undefined`
     );
   }
-  /* const {match} = props; */
-  /* const {id} = match.params; */
 
   const location = useLocation();
   const [thread, setThread] = useState(new Array<Post>());
