@@ -21,7 +21,7 @@ interface Post {
 const Thread = (): JSX.Element => {
   const { id }  = useParams();
   if (id === undefined) {
-    throw new Error(
+    throw new TypeError(
       `Expected 'id' to be defined, but received undefined`
     );
   }
