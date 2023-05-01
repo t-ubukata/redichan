@@ -25,10 +25,10 @@ const Thread = (): JSX.Element => {
     throw new TypeError(`Expected 'id' to be defined, but received undefined`);
   }
 
+  const threadURI = `http://localhost:4000/api/thread/${id}`;
+
   const location = useLocation();
   const [thread, setThread] = useState(new Array<Post>());
-
-  const threadURI = `http://localhost:4000/api/thread/${id}`;
 
   useEffect(() => {
     const fetchThread = async () => {
