@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useParams } from "react-router-dom";
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'Board.css';
+import 'Thread.css';
 import Stack from 'react-bootstrap/Stack';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -52,7 +52,7 @@ const Thread = (): JSX.Element => {
               <Col>{index}</Col>
             </Row>
             <Row>
-              <Col>{post.text}</Col>
+              <Col className="post-text">{post.text}</Col>
             </Row>
           </Container>
         ))}
