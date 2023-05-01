@@ -1,3 +1,4 @@
+/* To let \n work as new line. */
 .post-text {
     white-space: pre-line;
 }

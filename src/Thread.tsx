@@ -20,6 +20,7 @@ interface Post {
 
 const Thread = (): JSX.Element => {
   const { id }  = useParams();
+  // id's type is strig | undifined.
   if (id === undefined) {
     throw new TypeError(
       `Expected 'id' to be defined, but received undefined`
