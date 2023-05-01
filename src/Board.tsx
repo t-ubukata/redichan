@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Board.css';
@@ -57,7 +57,9 @@ const Board = (props: Props): JSX.Element => {
         {threads.map((thread) => (
           <Container className="bg-light border">
             <Row>
-              <Col className="col-10 thread-title">{thread.zeroPostTexts[0]}</Col>
+              <Col className="col-10 thread-title">
+                {thread.zeroPostTexts[0]}
+              </Col>
               <Col> {thread.postNumber}</Col>
             </Row>
           </Container>

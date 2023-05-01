@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Thread.css';
@@ -19,12 +19,10 @@ interface Post {
 }
 
 const Thread = (): JSX.Element => {
-  const { id }  = useParams();
+  const { id } = useParams();
   // id's type is strig | undifined.
   if (id === undefined) {
-    throw new TypeError(
-      `Expected 'id' to be defined, but received undefined`
-    );
+    throw new TypeError(`Expected 'id' to be defined, but received undefined`);
   }
 
   const location = useLocation();
