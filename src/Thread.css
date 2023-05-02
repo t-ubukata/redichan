@@ -1,3 +1,7 @@
+.container {
+    max-width: 540px;
+}
+
 /* To let \n work as new line. */
 .post-text {
     white-space: pre-line;
