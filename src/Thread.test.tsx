@@ -7,8 +7,6 @@ test('renders thread', () => {
   render(
     <BrowserRouter>
       <Routes>
-        {/* path "/" is required or we get warn. */}
-        <Route path="/" element={<Home />} />
         <Route path="/thread/0" element={<Thread />} />
       </Routes>
     </BrowserRouter>
