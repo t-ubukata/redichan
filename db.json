@@ -672,5 +672,6 @@
       "text": "This is the post 10.\nThis is a very very very very very very very very long text.",
       "UTCTimestamp": "2022-01-01T00:00:00"
     }
-  ]
+  ],
+  "startThread": {}
 }

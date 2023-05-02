@@ -19,7 +19,7 @@ root.render(
       <Route path="/board/ja/news" element={<Board name="jaNews" />} />
       <Route
         path="/board/en/news/start-thread"
-        element={<StartThread name="enNews" />}
+        element={<StartThread boardName="enNews" />}
       />
       <Route path="/thread/:id" element={<Thread />} />
     </Routes>
