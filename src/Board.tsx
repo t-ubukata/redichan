@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Board.css';
+import { Link } from 'react-router-dom';
 import Stack from 'react-bootstrap/Stack';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -53,15 +54,17 @@ const Board = (props: Props): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
-          <Container className="bg-light border">
+          <Container className="bg-light border link-dark text-decoration-none" as={Link} to={`/thread/${thread.id as unknown as string}`}>
             <Row>
               <Col className="col-10 thread-title">
                 {thread.zeroPostText}
               </Col>
-              <Col> {thread.postNumber}</Col>
+              <Col>{thread.postNumber}</Col>
             </Row>
           </Container>
         ))}
+        {/* br for layout. */}
+        <br/>
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
