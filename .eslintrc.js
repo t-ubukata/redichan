@@ -61,7 +61,13 @@ module.exports = {
        {
          "namedComponents": "arrow-function"
        }
-     ]
+     ],
+    "@typescript-eslint/no-misused-promises": [2, {
+      "checksVoidReturn": {
+        "attributes": false
+      }
+    }],
+    'react/jsx-props-no-spreading': 'off'
  },
  settings: {
    'import/resolver': {
