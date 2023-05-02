@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Board.css';
@@ -36,9 +35,8 @@ const Board = (props: Props): JSX.Element => {
       break;
     default:
       throw new Error('Invalid board name');
-      break;
   }
-  const location = useLocation();
+
   const [threads, setThreads] = useState(new Array<Thread>());
 
   useEffect(() => {
@@ -48,7 +46,7 @@ const Board = (props: Props): JSX.Element => {
       setThreads(result);
     };
     fetchThreads().catch((err) => consola.error(err));
-  }, [location]);
+  }, [name]);
 
   return (
     <div className="Board mx-auto">
@@ -68,7 +66,7 @@ const Board = (props: Props): JSX.Element => {
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
           <Nav.Link href="#search">🔍</Nav.Link>
-          <Nav.Link href="#start-a-thread">➕</Nav.Link>
+          <Nav.Link href="#start-thread">➕</Nav.Link>
         </Nav>
       </Navbar>
     </div>
