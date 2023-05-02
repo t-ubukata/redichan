@@ -53,7 +53,7 @@ const Thread = (): JSX.Element => {
           </Container>
         ))}
         {/* br for layout. */}
-        <br/>
+        <br />
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">

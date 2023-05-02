@@ -11,7 +11,8 @@ test('renders thread', () => {
         <Route path="/" element={<Home />} />
         <Route path="/thread/0" element={<Thread />} />
       </Routes>
-    </BrowserRouter>);
+    </BrowserRouter>
+  );
 
   /*
   const post= screen.getByText('➕');
