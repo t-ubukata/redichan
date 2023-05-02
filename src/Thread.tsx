@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Thread.css';
@@ -27,7 +27,6 @@ const Thread = (): JSX.Element => {
 
   const threadURI = `http://localhost:4000/api/thread/${id}`;
 
-  const location = useLocation();
   const [thread, setThread] = useState(new Array<Post>());
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const Thread = (): JSX.Element => {
       setThread(result);
     };
     fetchThread().catch((err) => consola.error(err));
-  }, [location]);
+  }, [id]);
 
   return (
     <div className="Board mx-auto">
@@ -56,7 +55,7 @@ const Thread = (): JSX.Element => {
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
-          <Nav.Link href="#start-a-thread">➕</Nav.Link>
+          <Nav.Link href="#post">➕</Nav.Link>
         </Nav>
       </Navbar>
     </div>
