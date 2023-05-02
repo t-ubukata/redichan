@@ -54,7 +54,7 @@ const Board = (props: Props): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
-          <Container className="bg-light border link-dark text-decoration-none" as={Link} to={`/thread/${thread.id as unknown as string}`}>
+          <Container key={thread.id} className="bg-light border link-dark text-decoration-none" as={Link} to={`/thread/${thread.id as unknown as string}`}>
             <Row>
               <Col className="col-10 thread-title">
                 {thread.zeroPostText}

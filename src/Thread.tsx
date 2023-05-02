@@ -43,7 +43,7 @@ const Thread = (): JSX.Element => {
       <RedichanNav />
       <Stack className="mb-5">
         {thread.map((post, index) => (
-          <Container className="bg-light border">
+          <Container key={post.id} className="bg-light border">
             <Row>
               <Col>{index}</Col>
             </Row>
