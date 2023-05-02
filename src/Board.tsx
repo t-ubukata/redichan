@@ -72,7 +72,9 @@ const Board = (props: Props): JSX.Element => {
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
           <Nav.Link href="#search">🔍</Nav.Link>
-          <Nav.Link href="#start-thread">➕</Nav.Link>
+          <Nav.Link as={Link} to="/board/en/news/start-thread">
+            ➕
+          </Nav.Link>
         </Nav>
       </Navbar>
     </div>

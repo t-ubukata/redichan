@@ -5,7 +5,7 @@ import Thread from './Thread';
 
 test('renders thread', () => {
   render(
-    <MemoryRouter initialEntries={["/thread/0"]}>
+    <MemoryRouter initialEntries={['/thread/0']}>
       <Routes>
         <Route path="/thread/:id" element={<Thread />} />
       </Routes>

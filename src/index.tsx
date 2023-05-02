@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'index.css';
 import Home from 'Home';
 import Board from 'Board';
+import StartThread from 'StartThread';
 import Thread from 'Thread';
 import reportWebVitals from 'reportWebVitals';
 
@@ -16,6 +17,10 @@ root.render(
       <Route path="/" element={<Home />} />
       <Route path="/board/en/news" element={<Board name="enNews" />} />
       <Route path="/board/ja/news" element={<Board name="jaNews" />} />
+      <Route
+        path="/board/en/news/start-thread"
+        element={<StartThread name="enNews" />}
+      />
       <Route path="/thread/:id" element={<Thread />} />
     </Routes>
   </BrowserRouter>
