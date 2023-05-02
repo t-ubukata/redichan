@@ -3,7 +3,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RedichanNav from './RedichanNav';
 
-test('renders nav', async () => {
+test('renders RedichanNav', async () => {
   const user = userEvent.setup();
   render(<RedichanNav />);
 

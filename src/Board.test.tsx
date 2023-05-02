@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Board from './Board';
 
-test('renders nav', async () => {
+test('renders Board', () => {
   render(<Board name="enNews"/>);
 
   const search = screen.getByText('🔍');

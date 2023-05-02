@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Home from './Home';
 
-test('renders learn react link', () => {
+test('renders Home', () => {
   render(<Home />);
   const p1 = screen.getByText(
     '⭐️ redichan is a newborn social media. Please cheer us and bring your friends!'

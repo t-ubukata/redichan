@@ -1,11 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import Thread from './Thread';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Thread from './Thread';
 
-test('renders thread', async () => {
+test('renders thread', () => {
   render(
     <BrowserRouter>
       <Routes>
+        // path "/" is required or we get warn.
+        <Route path="/" element={<Home />} />
         <Route path="/thread/0" element={<Thread />} />
       </Routes>
     </BrowserRouter>);
