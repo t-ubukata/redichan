@@ -20,31 +20,33 @@ const StartThread = (props: Props): JSX.Element => {
     <div className="StartThread mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
-      <Container>
-      <form
-        onSubmit={handleSubmit((text) =>
-          fetch('http://localhost:4000/api/thread', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(text),
-          })
-        )}
-      >
-        <Row>
-        <textarea {...register('text')} />
-        </Row>
-        <Row>
-        <Col>
-        <button aria-label="close" type="button">Close</button>
-        </Col>
-        <Col>
-        <input type="submit" />
-        </Col>
-        </Row>
-      </form>
-      </Container>
+        <Container>
+          <form
+            onSubmit={handleSubmit((text) =>
+              fetch('http://localhost:4000/api/thread', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(text),
+              })
+            )}
+          >
+            <Row>
+              <textarea {...register('text')} />
+            </Row>
+            <Row>
+              <Col>
+                <button aria-label="close" type="button">
+                  Close
+                </button>
+              </Col>
+              <Col>
+                <input type="submit" />
+              </Col>
+            </Row>
+          </form>
+        </Container>
       </Stack>
     </div>
   );
