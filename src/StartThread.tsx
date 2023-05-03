@@ -1,45 +1,56 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams, Link } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import consola from 'consola';
+import 'StartThread.css';
 import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-interface Props {
-  boardName: string;
-}
 
-const StartThread = (props: Props): JSX.Element => {
+interface InputData {
+  text: string;
+}
+const StartThread = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
-  const [data, setData] = useState('');
+
+  const onSubmit = async (inputData: object) => {
+    const typedInputData = inputData as InputData;
+    const postData = {
+      boardName: 'enNews',
+      userName: '',
+      text: typedInputData.text,
+    };
+    await fetch('http://localhost:4000/api/thread', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    });
+  };
+
+  const { lang, shortBoardName } = useParams();
+  const boardPath = `/board/${lang as string}/${shortBoardName as string}`;
 
   return (
     <div className="StartThread mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
         <Container>
-          <form
-            onSubmit={handleSubmit((text) =>
-              fetch('http://localhost:4000/api/thread', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(text),
-              })
-            )}
-          >
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Row>
               <textarea {...register('text')} />
             </Row>
             <Row>
               <Col>
-                <button aria-label="close" type="button">
+                <Link
+                  className="btn close-button"
+                  to={boardPath}
+                >
                   Close
-                </button>
+                </Link>
               </Col>
               <Col>
                 <input type="submit" />

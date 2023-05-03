@@ -1,0 +1,13 @@
+textarea {
+  resize: none;
+  width: 540px;
+  height: 540px;
+}
+
+.close-button {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}

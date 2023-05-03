@@ -6,11 +6,13 @@ import Home from 'Home';
 import Board from 'Board';
 import StartThread from 'StartThread';
 import Thread from 'Thread';
+import {concatLangNameAndShortBoadName} from 'redichanUtils'
 import reportWebVitals from 'reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <BrowserRouter>
     <Routes>
@@ -18,8 +20,8 @@ root.render(
       <Route path="/board/en/news" element={<Board name="enNews" />} />
       <Route path="/board/ja/news" element={<Board name="jaNews" />} />
       <Route
-        path="/board/en/news/start-thread"
-        element={<StartThread boardName="enNews" />}
+        path="/board/:lang/:shortBoardName/start-thread"
+        element={<StartThread />}
       />
       <Route path="/thread/:id" element={<Thread />} />
     </Routes>

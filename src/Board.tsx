@@ -10,6 +10,7 @@ import consola from 'consola';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { boardName2langName, boardName2shortBoardName } from 'redichanUtils';
 
 interface Props {
   name: string;
@@ -49,6 +50,10 @@ const Board = (props: Props): JSX.Element => {
     fetchThreads().catch((err) => consola.error(err));
   }, [name]);
 
+  const startThreadPath = `/board/${boardName2langName(
+    name
+  )}/${boardName2shortBoardName(name)}/start-thread`;
+
   return (
     <div className="Board mx-auto">
       <RedichanNav />
@@ -72,7 +77,7 @@ const Board = (props: Props): JSX.Element => {
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
           <Nav.Link href="#search">🔍</Nav.Link>
-          <Nav.Link as={Link} to="/board/en/news/start-thread">
+          <Nav.Link as={Link} to={startThreadPath}>
             ➕
           </Nav.Link>
         </Nav>
