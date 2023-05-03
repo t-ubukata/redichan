@@ -1,10 +1,10 @@
 const origin = location.host;
 
 const boardName2langName = (boardName: string): string =>
-  boardName.substr(0, 2);
+  boardName.substring(0, 2);
 
 const boardName2shortBoardName = (boardName: string): string =>
-  boardName.substr(2).toLowerCase();
+  boardName.substring(2).toLowerCase();
 
 const concatLangNameAndShortBoadName = (
   langName: string,
