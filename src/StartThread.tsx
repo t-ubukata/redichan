@@ -46,14 +46,14 @@ const StartThread = (): JSX.Element => {
             <Row>
               <Col>
                 <Link
-                  className="btn close-button"
+                  className="btn btn-dark close-button"
                   to={boardPath}
                 >
                   Close
                 </Link>
               </Col>
               <Col>
-                <input type="submit" />
+                <input className="btn btn-dark" type="submit" />
               </Col>
             </Row>
           </form>
