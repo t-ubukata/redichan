@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Thread from './Thread';
+import Home from 'Home';
+import Thread from 'Thread';
 
 test('renders thread', () => {
   render(

@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 interface InputData {
   text: string;
 }
@@ -45,10 +44,7 @@ const StartThread = (): JSX.Element => {
             </Row>
             <Row>
               <Col>
-                <Link
-                  className="btn btn-dark close-button"
-                  to={boardPath}
-                >
+                <Link className="btn btn-dark close-button" to={boardPath}>
                   Close
                 </Link>
               </Col>

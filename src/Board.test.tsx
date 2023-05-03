@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import Board from './Board';
+import Board from 'Board';
 
 test('renders Board', () => {
   render(
