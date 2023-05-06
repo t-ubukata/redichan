@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 interface InputData {
-  text: string;
+  content: string;
 }
 const StartThread = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
@@ -22,7 +22,7 @@ const StartThread = (): JSX.Element => {
     const postData = {
       boardName: 'enNews',
       userName: '',
-      text: typedInputData.text,
+      content: typedInputData.content,
     };
     await fetch('http://localhost:4000/api/thread', {
       method: 'POST',
@@ -48,7 +48,7 @@ const StartThread = (): JSX.Element => {
         <Container>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Row>
-              <textarea {...register('text')} />
+              <textarea {...register('content')} />
             </Row>
             <Row>
               <Col>
