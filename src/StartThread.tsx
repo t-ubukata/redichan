@@ -14,6 +14,9 @@ interface InputData {
 const StartThread = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
 
+  const { lang, shortBoardName } = useParams();
+  const boardPath = `/board/${lang as string}/${shortBoardName as string}`;
+
   const onSubmit = async (inputData: object) => {
     const typedInputData = inputData as InputData;
     const postData = {
@@ -27,11 +30,16 @@ const StartThread = (): JSX.Element => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(postData),
-    });
+    })
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = boardPath;
+        } else {
+          alert(`${response.status} ${response.statusText}`);
+        }
+      })
+      .catch((err) => alert(err));
   };
-
-  const { lang, shortBoardName } = useParams();
-  const boardPath = `/board/${lang as string}/${shortBoardName as string}`;
 
   return (
     <div className="StartThread mx-auto">

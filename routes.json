@@ -3,6 +3,6 @@
   "/api/ja/boards": "/jaBoards",
   "/api/board/en/news/threads/latest": "/boardEnNewsThreadsLatest",
   "/api/board/ja/news/threads/latest": "/boardJaNewsThreadsLatest",
-  "/api/thread/1": "/thread0",
+  "/api/thread/0": "/thread0",
   "/api/thread": "/startThread"
 }
