@@ -52,8 +52,8 @@ const StartThread = (): JSX.Element => {
             </Row>
             <Row>
               <Col>
-                <Link className="btn btn-dark close-button" to={boardPath}>
-                  Close
+                <Link className="btn btn-dark cancel-button" to={boardPath}>
+                  Cancel
                 </Link>
               </Col>
               <Col>
