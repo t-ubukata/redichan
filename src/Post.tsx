@@ -57,7 +57,11 @@ const Post = (): JSX.Element => {
                 </Link>
               </Col>
               <Col>
-                <input className="btn btn-dark" type="submit" data-testid="submit-button"/>
+                <input
+                  className="btn btn-dark"
+                  type="submit"
+                  data-testid="submit-button"
+                />
               </Col>
             </Row>
           </form>

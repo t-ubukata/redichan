@@ -60,7 +60,9 @@ const Thread = (): JSX.Element => {
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
-          <Nav.Link as={Link} to={postPath}>➕</Nav.Link>
+          <Nav.Link as={Link} to={postPath}>
+            ➕
+          </Nav.Link>
         </Nav>
       </Navbar>
     </div>

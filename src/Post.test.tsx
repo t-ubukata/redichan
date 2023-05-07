@@ -6,9 +6,8 @@ test('renders Post', () => {
   render(
     <MemoryRouter initialEntries={['/thread/0/post']}>
       <Routes>
-        <Route
-          path="/thread/:id/post" element={<Post />} />
-        </Routes>
+        <Route path="/thread/:id/post" element={<Post />} />
+      </Routes>
     </MemoryRouter>
   );
 

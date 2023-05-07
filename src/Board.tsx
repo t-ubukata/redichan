@@ -10,7 +10,11 @@ import consola from 'consola';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { APIOrigin, boardName2langName, boardName2shortBoardName } from 'redichanUtils';
+import {
+  APIOrigin,
+  boardName2langName,
+  boardName2shortBoardName,
+} from 'redichanUtils';
 
 interface Props {
   name: string;

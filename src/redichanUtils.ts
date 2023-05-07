@@ -1,4 +1,16 @@
-const APIOrigin = 'http://localhost:4000';
+const APIOrigin = (() => {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.NODE_ENV === 'test'
+  ) {
+    return 'http://localhost:4000';
+  }
+  if (process.env.NODE_ENV === 'production') {
+    // TODO: Decide production API origin.
+    return '';
+  }
+  throw Error('Unknown NODE_ENV value');
+})();
 
 const boardName2langName = (boardName: string): string =>
   boardName.substring(0, 2);

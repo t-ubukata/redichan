@@ -7,8 +7,10 @@ test('renders StartThread', () => {
     <MemoryRouter initialEntries={['/board/en/news/start-thread']}>
       <Routes>
         <Route
-          path="/board/:lang/:shortBoardName/start-thread" element={<StartThread />} />
-        </Routes>
+          path="/board/:lang/:shortBoardName/start-thread"
+          element={<StartThread />}
+        />
+      </Routes>
     </MemoryRouter>
   );
 

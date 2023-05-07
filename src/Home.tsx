@@ -5,7 +5,7 @@ import RedichanNav from 'RedichanNav';
 const Home = (): JSX.Element => (
   <div>
     <RedichanNav />
-    <div className="Home mx-auto">
+    <div className="home-article mx-auto">
       <p>
         ⭐️ redichan is a newborn social media. Please cheer us and bring your
         friends!
