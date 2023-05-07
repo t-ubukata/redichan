@@ -76,7 +76,7 @@ const Board = (props: Props): JSX.Element => {
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
-          <Nav.Link href="#search">🔍</Nav.Link>
+          {/* <Nav.Link href="#search">🔍</Nav.Link> */}
           <Nav.Link as={Link} to={startThreadPath}>
             ➕
           </Nav.Link>
