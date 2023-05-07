@@ -48,7 +48,7 @@ const StartThread = (): JSX.Element => {
         <Container>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Row>
-              <textarea {...register('content')} />
+              <textarea {...register('content')} data-testid="content-area" />
             </Row>
             <Row>
               <Col>
@@ -57,7 +57,7 @@ const StartThread = (): JSX.Element => {
                 </Link>
               </Col>
               <Col>
-                <input className="btn btn-dark" type="submit" />
+                <input className="btn btn-dark" type="submit" data-testid="submit-button"/>
               </Col>
             </Row>
           </form>
