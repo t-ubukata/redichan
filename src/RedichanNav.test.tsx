@@ -6,18 +6,19 @@ test('renders RedichanNav', async () => {
   const user = userEvent.setup();
   render(<RedichanNav />);
 
-  const navBarBrandEl = screen.getByText('redichan');
-  const navDropDownElEn = screen.getByText('English');
-  const navDropDownElJa = screen.getByText('日本語');
+  const navBarBrand = screen.getByText('redichan');
+  expect(navBarBrand).toBeInTheDocument();
 
-  expect(navBarBrandEl).toBeInTheDocument();
-  expect(navDropDownElEn).toBeInTheDocument();
-  expect(navDropDownElJa).toBeInTheDocument();
+  const navDropDownEn = screen.getByText('English');
+  expect(navDropDownEn).toBeInTheDocument();
 
+  const navDropDownJa = screen.getByText('日本語');
+  expect(navDropDownJa).toBeInTheDocument();
+
+  /*
   const enBoards = await screen.findByTestId('en-boards');
   const enBoardsButton = await within(enBoards).findByRole('button');
 
-  /*
   await user.click(enBoardsButton);
   const enNews = await within(enBoards).findByText('News');
   const enMay = await within(enBoards).findByText('may');

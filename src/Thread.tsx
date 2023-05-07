@@ -10,6 +10,7 @@ import consola from 'consola';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { APIOrigin } from 'redichanUtils';
 
 interface Post {
   id: number;
@@ -25,7 +26,7 @@ const Thread = (): JSX.Element => {
     throw new TypeError(`Expected 'id' to be defined, but received undefined`);
   }
 
-  const threadURI = `http://localhost:4000/api/thread/${id}`;
+  const threadURI = `${APIOrigin}/api/thread/${id}`;
 
   const [thread, setThread] = useState(new Array<Post>());
 

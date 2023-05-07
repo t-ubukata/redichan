@@ -12,8 +12,8 @@ test('renders Board', () => {
   );
 
   const search = screen.getByText('🔍');
-  const startThread = screen.getByText('➕');
-
   expect(search).toBeInTheDocument();
+
+  const startThread = screen.getByText('➕');
   expect(startThread).toBeInTheDocument();
 });

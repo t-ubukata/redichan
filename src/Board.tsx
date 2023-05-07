@@ -10,7 +10,7 @@ import consola from 'consola';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { boardName2langName, boardName2shortBoardName } from 'redichanUtils';
+import { APIOrigin, boardName2langName, boardName2shortBoardName } from 'redichanUtils';
 
 interface Props {
   name: string;
@@ -30,10 +30,10 @@ const Board = (props: Props): JSX.Element => {
   let threadsURI = '';
   switch (name) {
     case 'enNews':
-      threadsURI = 'http://localhost:4000/api/board/en/news/threads/latest';
+      threadsURI = `${APIOrigin}/api/board/en/news/threads/latest`;
       break;
     case 'jaNews':
-      threadsURI = 'http://localhost:4000/api/board/ja/news/threads/latest';
+      threadsURI = `${APIOrigin}/api/board/ja/news/threads/latest`;
       break;
     default:
       throw new Error('Invalid board name');

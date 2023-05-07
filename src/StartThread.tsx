@@ -7,6 +7,7 @@ import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { APIOrigin } from 'redichanUtils';
 
 interface InputData {
   content: string;
@@ -24,7 +25,7 @@ const StartThread = (): JSX.Element => {
       userName: '',
       content: typedInputData.content,
     };
-    await fetch('http://localhost:4000/api/thread', {
+    await fetch(`${APIOrigin}/api/thread`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

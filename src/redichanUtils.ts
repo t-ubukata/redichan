@@ -1,4 +1,4 @@
-const origin = location.host;
+const APIOrigin = 'http://localhost:4000';
 
 const boardName2langName = (boardName: string): string =>
   boardName.substring(0, 2);
@@ -11,8 +11,8 @@ const concatLangNameAndShortBoadName = (
   shortBoardName: string
 ) => {
   const upperCamelShortBoardName = `${shortBoardName
-    .substr(0, 1)
-    .toUpperCase()}${shortBoardName.substr(1)}`;
+    .substring(0, 1)
+    .toUpperCase()}${shortBoardName.substring(1)}`;
   return `${langName}${upperCamelShortBoardName}`;
 };
 
@@ -38,7 +38,7 @@ const getVideoThumbnail = (path: string): Promise<string> =>
   });
 
 export {
-  origin,
+  APIOrigin,
   boardName2langName,
   boardName2shortBoardName,
   concatLangNameAndShortBoadName,

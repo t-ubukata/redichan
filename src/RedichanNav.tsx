@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import consola from 'consola';
 import LOGO from 'logo.svg';
+import { APIOrigin } from 'redichanUtils';
 
 interface Board {
   id: number;
@@ -17,7 +18,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchEnBoards = async () => {
-      const response = await fetch('http://localhost:4000/api/en/boards');
+      const response = await fetch(`${APIOrigin}/api/en/boards`);
       const result = (await response.json()) as Array<Board>;
       setEnBoards(result);
     };
@@ -28,7 +29,7 @@ const RedichanNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchJaBoards = async () => {
-      const response = await fetch('http://localhost:4000/api/ja/boards');
+      const response = await fetch(`${APIOrigin}/api/ja/boards`);
       const result = (await response.json()) as Array<Board>;
       setJaBoards(result);
     };
