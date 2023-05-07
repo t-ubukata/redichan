@@ -40,7 +40,7 @@ const Thread = (): JSX.Element => {
   }, [id]);
 
   return (
-    <div className="Board mx-auto">
+    <div className="mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
         {thread.map((post, index) => (

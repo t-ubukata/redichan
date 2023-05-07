@@ -55,7 +55,7 @@ const Board = (props: Props): JSX.Element => {
   )}/${boardName2shortBoardName(name)}/start-thread`;
 
   return (
-    <div className="Board mx-auto">
+    <div className="mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
         {threads.map((thread) => (
