@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import RedichanNav from 'RedichanNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Thread.css';
@@ -39,6 +39,8 @@ const Thread = (): JSX.Element => {
     fetchThread().catch((err) => consola.error(err));
   }, [id]);
 
+  const postPath = `/thread/${id}/post`;
+
   return (
     <div className="mx-auto">
       <RedichanNav />
@@ -58,7 +60,7 @@ const Thread = (): JSX.Element => {
       </Stack>
       <Navbar bg="light" variant="light" fixed="bottom">
         <Nav className="ms-auto">
-          <Nav.Link href="#post">➕</Nav.Link>
+          <Nav.Link as={Link} to={postPath}>➕</Nav.Link>
         </Nav>
       </Navbar>
     </div>

@@ -4,5 +4,6 @@
   "/api/board/en/news/threads/latest": "/boardEnNewsThreadsLatest",
   "/api/board/ja/news/threads/latest": "/boardJaNewsThreadsLatest",
   "/api/thread/0": "/thread0",
-  "/api/thread": "/startThread"
+  "/api/thread": "/startThread",
+  "/api/thread/0/post": "/post0"
 }

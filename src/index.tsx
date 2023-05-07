@@ -5,6 +5,7 @@ import Home from 'Home';
 import Board from 'Board';
 import StartThread from 'StartThread';
 import Thread from 'Thread';
+import Post from 'Post';
 import reportWebVitals from 'reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -22,6 +23,7 @@ root.render(
         element={<StartThread />}
       />
       <Route path="/thread/:id" element={<Thread />} />
+      <Route path="/thread/:id/post" element={<Post />} />
     </Routes>
   </BrowserRouter>
 );

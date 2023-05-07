@@ -12,20 +12,19 @@ import { APIOrigin } from 'redichanUtils';
 interface InputData {
   content: string;
 }
-const StartThread = (): JSX.Element => {
+const Post = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
 
-  const { lang, shortBoardName } = useParams();
-  const boardPath = `/board/${lang as string}/${shortBoardName as string}`;
+  const { id } = useParams();
+  const threadPath = `/thread/${id as string}`;
 
   const onSubmit = async (inputData: object) => {
     const typedInputData = inputData as InputData;
     const postData = {
-      boardName: 'enNews',
       userName: '',
       content: typedInputData.content,
     };
-    await fetch(`${APIOrigin}/api/thread`, {
+    await fetch(`${APIOrigin}/api/thread/${id as string}/post`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +33,7 @@ const StartThread = (): JSX.Element => {
     })
       .then((response) => {
         if (response.ok) {
-          window.location.href = boardPath;
+          window.location.href = threadPath;
         } else {
           alert(`${response.status} ${response.statusText}`);
         }
@@ -53,7 +52,7 @@ const StartThread = (): JSX.Element => {
             </Row>
             <Row>
               <Col>
-                <Link className="btn btn-dark cancel-button" to={boardPath}>
+                <Link className="btn btn-dark cancel-button" to={threadPath}>
                   Cancel
                 </Link>
               </Col>
@@ -68,4 +67,4 @@ const StartThread = (): JSX.Element => {
   );
 };
 
-export default StartThread;
+export default Post;
