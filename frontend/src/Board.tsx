@@ -23,7 +23,7 @@ interface Props {
 interface Thread {
   id: number;
   poster: string;
-  zeroPostText: string;
+  firstComment: string;
   attachmentPath: string;
   postNumber: number;
   UTCTimestamp: Date;
@@ -70,7 +70,7 @@ const Board = (props: Props): JSX.Element => {
             to={`/thread/${thread.id as unknown as string}`}
           >
             <Row>
-              <Col className="col-10 thread-title">{thread.zeroPostText}</Col>
+              <Col className="col-10 thread-title">{thread.firstComment}</Col>
               <Col>{thread.postNumber}</Col>
             </Row>
           </Container>

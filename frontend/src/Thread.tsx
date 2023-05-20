@@ -15,7 +15,8 @@ import { APIOrigin } from 'redichanUtils';
 interface Post {
   id: number;
   poster: string;
-  text: string;
+  comment: string;
+  attachmentPath: string;
   UTCTimeStamp: Date;
 }
 
@@ -51,7 +52,7 @@ const Thread = (): JSX.Element => {
               <Col>{index}</Col>
             </Row>
             <Row>
-              <Col className="post-text">{post.text}</Col>
+              <Col className="post-text">{post.comment}</Col>
             </Row>
           </Container>
         ))}
