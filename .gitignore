@@ -3,7 +3,7 @@
 # redichan_web
 
 # dependencies
-/redichan_web/node_modules
+/redichan_web/node_modules/
 frontend//.pnp
 .pnp.js
 
