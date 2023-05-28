@@ -11,8 +11,8 @@ test('renders Post', () => {
     </MemoryRouter>
   );
 
-  const contentArea = screen.getByTestId('content-area');
-  expect(contentArea).toBeInTheDocument();
+  const commentArea = screen.getByTestId('comment-area');
+  expect(commentArea).toBeInTheDocument();
 
   const cancel = screen.getByText('Cancel');
   expect(cancel).toBeInTheDocument();

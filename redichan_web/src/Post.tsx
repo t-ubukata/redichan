@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 import { APIOrigin } from 'redichanUtils';
 
 interface InputData {
-  content: string;
+  comment: string;
 }
 const Post = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
@@ -22,7 +22,7 @@ const Post = (): JSX.Element => {
     const typedInputData = inputData as InputData;
     const postData = {
       userName: '',
-      content: typedInputData.content,
+      comment: typedInputData.comment,
     };
     await fetch(`${APIOrigin}/api/thread/${id as string}/post`, {
       method: 'POST',
@@ -48,7 +48,7 @@ const Post = (): JSX.Element => {
         <Container>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Row>
-              <textarea {...register('content')} data-testid="content-area" />
+              <textarea {...register('comment')} data-testid="comment-area" />
             </Row>
             <Row>
               <Col>
