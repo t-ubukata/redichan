@@ -22,7 +22,6 @@ interface Props {
 
 interface Thread {
   id: number;
-  poster: string;
   firstComment: string;
   attachmentPath: string;
   postNumber: number;

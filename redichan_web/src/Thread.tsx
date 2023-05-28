@@ -14,7 +14,6 @@ import { APIOrigin } from 'redichanUtils';
 
 interface Post {
   id: number;
-  poster: string;
   comment: string;
   attachmentPath: string;
   UTCTimeStamp: Date;
