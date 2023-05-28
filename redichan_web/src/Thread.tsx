@@ -46,10 +46,10 @@ const Thread = (): JSX.Element => {
     <div className="mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
-        {thread.map((post, index) => (
+        {thread.map((post) => (
           <Container key={post.id} className="bg-light border">
             <Row>
-              <Col>{index}</Col>
+              <Col>{post.id}</Col>
             </Row>
             <Row>
               <Col className="post-text">{post.comment}</Col>
