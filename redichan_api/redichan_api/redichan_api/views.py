@@ -17,3 +17,4 @@ class JaBoardsViewSet(viewsets.ModelViewSet):
   def list(self, request):
     queryset: RawQuerySet = Boards.select('ja')
     serializer_class = BoardsSerializer
+    return Response(serializer.data)
