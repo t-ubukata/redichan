@@ -60,6 +60,7 @@ CREATE TABLE redichan.posts (
   FOREIGN KEY (poster_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (status_id) REFERENCES post_status_types(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
 -- Creates and grants users.
 CREATE USER `admin`@`localhost` IDENTIFIED BY 'admin';
 GRANT ALL on redichan.* TO admin@localhost IDENTIFIED BY 'admin';
