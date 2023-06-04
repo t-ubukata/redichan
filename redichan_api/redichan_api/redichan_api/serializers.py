@@ -1,9 +1,9 @@
-from django.contrib.auth.models import Boards
+from redichan_api.redichan_api import models
 from rest_framework import serializers
 
 
 class BoardsSerializer(serializers.HyperlinkedModelSerializer):
 
   class Meta:
-    model = Boards
+    model = models.Boards
     fields: list[str] = ['id', 'name', 'path']

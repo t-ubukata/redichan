@@ -3,9 +3,9 @@ from django.db.models.query import RawQuerySet
 
 
 class Boards(models.Model):
-  id: models.IntegerField = models.IntegerField()
-  name: models.CharField = models.CharField(32)
-  path: models.CharField = models.CharField(64)
+  id: models.IntegerField = models.IntegerField(primary_key=True)
+  name: models.CharField = models.CharField(max_length=32)
+  path: models.CharField = models.CharField(max_length=64)
 
   def select(self, lang: str) -> RawQuerySet:
     q = 'SELECT id, name, path FROM redichan.tables WHERE language = %s ' \

@@ -19,9 +19,12 @@ from django.urls import include, path
 from rest_framework import routers
 from redichan_api.redichan_api import views
 
+
 router = routers.DefaultRouter()
-router.register(r'api/en/boards', views.EnBoardsViewSet)
-router.register(r'api/ja/boards', views.JaBoardsViewSet)
+router.register(r'api/en/boards', views.EnBoardsViewSet,
+                basename='EnBoardsViewSet')
+router.register(r'api/ja/boards', views.JaBoardsViewSet,
+                basename='JaBoardsViewSet')
 
 urlpatterns = [
     path('', include(router.urls)),
