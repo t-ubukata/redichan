@@ -10,7 +10,7 @@ class EnBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
     queryset: RawQuerySet = models.Boards.select('en')
-    serializer: BoardsSerializer = BoardsSerializer
+    serializer = BoardsSerializer
     return Response(serializer.data)
 
 
@@ -18,5 +18,5 @@ class JaBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
     queryset: RawQuerySet = models.Boards.select('ja')
-    serializer: BoardsSerializer = BoardsSerializer
+    serializer = BoardsSerializer
     return Response(serializer.data)
