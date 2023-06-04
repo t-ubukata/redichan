@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class BoardsSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Boards
-        fields: list[str] = ['id', 'name', 'path']
 
+  class Meta:
+    model = Boards
+    fields: list[str] = ['id', 'name', 'path']
