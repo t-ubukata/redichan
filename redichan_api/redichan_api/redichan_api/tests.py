@@ -13,7 +13,7 @@ class BoardsTests(TestCase):
     raw_result.path = '/boards/en/news'
     with mock.patch('redichan_api.redichan_api.models.Boards.objects.raw',
                     mock.MagicMock(return_value=raw_result)):
-      result = models.Boards.select('en')
+      result = models.Boards.get('en')
 
       self.assertEqual(result.id, 1)
       self.assertEqual(result.name, 'News')

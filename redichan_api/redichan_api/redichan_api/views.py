@@ -9,7 +9,7 @@ from rest_framework.response import Response
 class EnBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
-    queryset = models.Boards.select('en')
+    queryset = models.Boards.get('en')
     # serializer = BoardsSerializer
     res = serialize('json', queryset)
     return Response(res)
@@ -18,7 +18,7 @@ class EnBoardsViewSet(viewsets.ModelViewSet):
 class JaBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
-    queryset = models.Boards.select('ja')
+    queryset = models.Boards.get('ja')
     # serializer = BoardsSerializer
     res = serialize('json', queryset)
     return Response(res)
