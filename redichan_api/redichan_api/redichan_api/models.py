@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.query import RawQuerySet
-
 
 class Boards(models.Model):
   id: models.IntegerField = models.IntegerField(primary_key=True)
