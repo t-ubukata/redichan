@@ -6,4 +6,4 @@ class BoardsSerializer(serializers.HyperlinkedModelSerializer):
 
   class Meta:
     model = models.Boards
-    fields: list[str] = ['id', 'name', 'path']
+    fields = ['id', 'name', 'path']
