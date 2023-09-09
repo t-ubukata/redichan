@@ -75,12 +75,21 @@ WSGI_APPLICATION = 'redichan_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'redichan',
-        'USER': 'app',
-        'PASSWORD': 'app',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'redichan',
+#         'USER': 'app',
+#         'PASSWORD': 'app',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
