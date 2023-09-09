@@ -9,7 +9,7 @@ from redichan_api.redichan_api.serializers import BoardsSerializer
 class EnBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
-    queryset: RawQuerySet = models.Boards.select('en')
+    queryset = models.Boards.select('en')
     serializer = BoardsSerializer
     return Response(serializer.data)
 
@@ -17,6 +17,6 @@ class EnBoardsViewSet(viewsets.ModelViewSet):
 class JaBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
-    queryset: RawQuerySet = models.Boards.select('ja')
+    queryset = models.Boards.select('ja')
     serializer = BoardsSerializer
     return Response(serializer.data)
