@@ -7,7 +7,8 @@ class Boards(models.Model):
   name: models.CharField = models.CharField(max_length=32)
   path: models.CharField = models.CharField(max_length=64)
 
-  def select(self, lang):
+  @staticmethod
+  def select(lang):
     q = '''
         SELECT id, name, path FROM redichan.tables
           WHERE language = %s

@@ -1,4 +1,4 @@
-from django.db.models.query import RawQuerySet
+from django.core.serializers import serialize
 from redichan_api.redichan_api import models
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -10,13 +10,15 @@ class EnBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
     queryset = models.Boards.select('en')
-    serializer = BoardsSerializer
-    return Response(serializer.data)
+    # serializer = BoardsSerializer
+    res = serialize('json', queryset)
+    return Response(res)
 
 
 class JaBoardsViewSet(viewsets.ModelViewSet):
 
   def list(self, request):
     queryset = models.Boards.select('ja')
-    serializer = BoardsSerializer
-    return Response(serializer.data)
+    # serializer = BoardsSerializer
+    res = serialize('json', queryset)
+    return Response(res)
