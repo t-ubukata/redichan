@@ -1,5 +1,5 @@
 -- Creates database.
-CREATE DATABASE redichan CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_bin;
+CREATE DATABASE redichan;
 
 -- Creates tables.
 CREATE TABLE redichan.boards (
