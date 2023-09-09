@@ -8,6 +8,9 @@ class Boards(models.Model):
   path: models.CharField = models.CharField(max_length=64)
 
   def select(self, lang):
-    q = 'SELECT id, name, path FROM redichan.tables WHERE language = %s ' \
-        'ORDER BY order_in_lang'
+    q = '''
+        SELECT id, name, path FROM redichan.tables
+          WHERE language = %s
+          ORDER BY order_in_lang
+        '''
     return Boards.objects.raw(q, [lang])
