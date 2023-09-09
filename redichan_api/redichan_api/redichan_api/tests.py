@@ -6,12 +6,14 @@ from unittest import mock
 
 class BoardsTests(TestCase):
 
-  raw_result = RawQuerySet('')
-  raw_result._result_cache = {id: 1, name: 'News', path: '/boards/en/news'}
-
-  @mock.patch('models.Boards.objects.raw',
-              mock.MagicMock(return_value=raw_result))
   def test_select_returns_id_name_path(self):
-    b = models.Boards()
-    result = b.select('en')
-    print(result)
+    raw_result = RawQuerySet('')
+    raw_result.id = 1
+    raw_result.name = 'News'
+    raw_result.path = '/boards/en/news'
+    with mock.patch('redichan_api.redichan_api.models.Boards.objects.raw',
+                    mock.MagicMock(return_value=raw_result)):
+      b = models.Boards()
+      result = b.select('en')
+
+      print(result.id)
