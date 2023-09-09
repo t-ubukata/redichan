@@ -1,3 +1,5 @@
+# This Pylint rcfile is a modified version of Google Python style guide.
+
 # This Pylint rcfile contains a best-effort configuration to uphold the
 # best-practices and style described in the Google Python style guide:
 #   https://google.github.io/styleguide/pyguide.html
@@ -89,6 +91,7 @@ disable=abstract-method,
         long-suffix,
         map-builtin-not-iterating,
         misplaced-comparison-constant,
+        missing-docstring,  # added
         missing-function-docstring,
         metaclass-assignment,
         next-method-called,
@@ -221,7 +224,7 @@ method-rgx=(?x)^(?:(?P<exempt>_[a-z0-9_]+__|runTest|setUp|tearDown|setUpTestCase
 
 # Regular expression which should only match function or class names that do
 # not require a docstring.
-# no-docstring-rgx=(__.*__|main|test.*|.*test|.*Test)$
+no-docstring-rgx=(__.*__|main|test.*|.*test|.*Test)$
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
