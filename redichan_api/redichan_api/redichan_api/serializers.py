@@ -6,4 +6,5 @@ class BoardsSerializer(serializers.HyperlinkedModelSerializer):
 
   class Meta:
     model = models.Boards
-    fields = ['id', 'name', 'path']
+    fields = '__all__'
+
