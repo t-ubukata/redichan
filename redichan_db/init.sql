@@ -3,7 +3,7 @@ CREATE DATABASE redichan;
 
 -- Creates tables.
 CREATE TABLE redichan.boards (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  board_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   language VARCHAR(2) NOT NULL,
   name VARCHAR(32) NOT NULL UNIQUE,
   path VARCHAR(64) NOT NULL UNIQUE,
@@ -12,39 +12,39 @@ CREATE TABLE redichan.boards (
 );
 
 CREATE TABLE redichan.user_role_types (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  role_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   type VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.user_status_types (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.thread_status_types (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  thread_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.post_status_types (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  post_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.users (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(16) NOT NULL UNIQUE,
   role_id INTEGER NOT NULL UNIQUE,
   password_hash VARCHAR(32) NOT NULL,
-  FOREIGN KEY (role_id) REFERENCES user_role_types(id) ON UPDATE CASCADE ON DELETE CASCADE
+  FOREIGN KEY (role_id) REFERENCES user_role_types(user_role_type_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE redichan.threads (
-  id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  thread_id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   board_id INTEGER NOT NULL UNIQUE,
   status_id INTEGER NOT NULL UNIQUE,
   FOREIGN KEY (board_id) REFERENCES boards(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY (status_id) REFERENCES thread_status_types(id) ON UPDATE CASCADE ON DELETE CASCADE
+  FOREIGN KEY (status_id) REFERENCES thread_status_types(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE redichan.posts (
@@ -56,9 +56,9 @@ CREATE TABLE redichan.posts (
   attachment_path VARCHAR(64) NOT NULL,
   status_id INTEGER NOT NULL UNIQUE,
   utc_timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (thread_id) REFERENCES threads(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY (poster_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY (status_id) REFERENCES post_status_types(id) ON UPDATE CASCADE ON DELETE CASCADE
+  FOREIGN KEY (thread_id) REFERENCES threads(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (poster_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (status_id) REFERENCES post_status_types(post_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Creates and grants users.
@@ -70,23 +70,23 @@ GRANT SELECT, INSERT, UPDATE, DELETE on redichan.* TO app@localhost IDENTIFIED B
 
 -- Inserts user tole types.
 INSERT INTO redichan.user_role_types (type) VALUES
-  (0, 'ordinary'),
-  (1, 'admin');
+  ('ordinary'),
+  ('admin');
 
 -- Inserts user status types.
 INSERT INTO redichan.user_status_types (status) VALUES
-  (0, 'available'),
-  (1, 'suspended');
+  ('available'),
+  ('suspended');
 
 -- Inserts thread status types.
 INSERT INTO redichan.thread_status_types (status) VALUES
-  (0, 'available'),
-  (1, 'deleted');
+  ('available'),
+  ('deleted');
 
 -- Inserts post status types.
 INSERT INTO redichan.post_status_types (status) VALUES
-  (0, 'available'),
-  (1, 'deleted');
+  ('available'),
+  ('deleted');
 
 -- Inserts initial data.
 INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) VALUES
@@ -153,6 +153,6 @@ INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) V
 
 -- Inserts initial users.
 INSERT INTO redichan.users (name, role_id, password_hash) VALUES
-  ('admin01', 1, 'admin01');
+  ('admin01', 2, 'admin01');
 
 
