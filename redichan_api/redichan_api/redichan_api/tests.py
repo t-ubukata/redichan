@@ -181,20 +181,14 @@ class BoardsTests(TestCase):
 
     self.assertEqual(result.raw_query, q)
 
+
+class EnBoardsViewSetTest(TestCase):
+
   def test_list_returns_en_boards(self):
-    raw_result = RawQuerySet('', models.Boards)
-    raw_result[0].id = 1
-    raw_result[0].name = 'News'
-    raw_result[0].path = '/boards/en/news'
-
     req = Request(HttpRequest())
-    with mock.patch('redichan_api.redichan_api.models.Boards.get',
-                    mock.MagicMock(return_value=raw_result)):
+    view_set = views.EnBoardsViewSet()
 
-      raw_result.iterator = mock.MagicMock(return_value=[])
-
-      view_set = views.EnBoardsViewSet()
-      result = view_set.list(req)
+    result = view_set.get(req)
 
     self.assertEqual(result.data.id, 1)
     self.assertEqual(result.data.name, 'News')
