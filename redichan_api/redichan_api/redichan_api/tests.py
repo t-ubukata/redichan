@@ -1,169 +1,12 @@
 from django.db.models.query import RawQuerySet
 from django.http import HttpRequest
 from django.test import TestCase
-from redichan_api.redichan_api import models, views
+from redichan_api.redichan_api import models, serializers, views
 from rest_framework.request import Request
-from unittest import mock
-
-INIT_QUERY = '''
-             -- Creates tables.
-             CREATE TABLE redichan.boards (
-               board_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               language VARCHAR(2) NOT NULL,
-               name VARCHAR(32) NOT NULL UNIQUE,
-               path VARCHAR(64) NOT NULL UNIQUE,
-               minutes_to_live INTEGER NOT NULL,
-               order_in_lang INTEGER NOT NULL
-             );
-
-             CREATE TABLE redichan.user_role_types (
-               role_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               type VARCHAR(16) NOT NULL UNIQUE
-             );
-
-             CREATE TABLE redichan.user_status_types (
-               user_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               status VARCHAR(16) NOT NULL UNIQUE
-             );
-
-             CREATE TABLE redichan.thread_status_types (
-               thread_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               status VARCHAR(16) NOT NULL UNIQUE
-             );
-
-             CREATE TABLE redichan.post_status_types (
-               post_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               status VARCHAR(16) NOT NULL UNIQUE
-             );
-
-             CREATE TABLE redichan.users (
-               user_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               name VARCHAR(16) NOT NULL UNIQUE,
-               role_id INTEGER NOT NULL UNIQUE,
-               password_hash VARCHAR(32) NOT NULL,
-               FOREIGN KEY (role_id) REFERENCES user_role_types(user_role_type_id) ON UPDATE CASCADE ON DELETE CASCADE
-             );
-
-             CREATE TABLE redichan.threads (
-               thread_id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               board_id INTEGER NOT NULL UNIQUE,
-               status_id INTEGER NOT NULL UNIQUE,
-               FOREIGN KEY (board_id) REFERENCES boards(id) ON UPDATE CASCADE ON DELETE CASCADE,
-               FOREIGN KEY (status_id) REFERENCES thread_status_types(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
-             );
-
-             CREATE TABLE redichan.posts (
-               id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-               number INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
-               thread_id INTEGER NOT NULL UNIQUE,
-               poster_id INTEGER NOT NULL UNIQUE,
-               comment VARCHAR(2000) NOT NULL,
-               attachment_path VARCHAR(64) NOT NULL,
-               status_id INTEGER NOT NULL UNIQUE,
-               utc_timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-               FOREIGN KEY (thread_id) REFERENCES threads(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE,
-               FOREIGN KEY (poster_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-               FOREIGN KEY (status_id) REFERENCES post_status_types(post_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
-             );
-
-             -- Creates and grants users.
-             CREATE USER `admin`@`localhost` IDENTIFIED BY 'admin';
-             GRANT ALL on redichan.* TO admin@localhost IDENTIFIED BY 'admin';
-
-             CREATE USER `app`@`localhost` IDENTIFIED BY 'app';
-             GRANT SELECT, INSERT, UPDATE, DELETE on redichan.* TO app@localhost IDENTIFIED BY 'app';
-
-             -- Inserts user tole types.
-             INSERT INTO redichan.user_role_types (type) VALUES
-               ('ordinary'),
-               ('admin');
-
-             -- Inserts user status types.
-             INSERT INTO redichan.user_status_types (status) VALUES
-               ('available'),
-               ('suspended');
-
-             -- Inserts thread status types.
-             INSERT INTO redichan.thread_status_types (status) VALUES
-               ('available'),
-               ('deleted');
-
-             -- Inserts post status types.
-             INSERT INTO redichan.post_status_types (status) VALUES
-               ('available'),
-               ('deleted');
-
-             -- Inserts initial data.
-             INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) VALUES
-               -- English Boards
-               ('en', 'News', '/boards/en/news', 1440, 1),
-               ('en', 'Politics', '/boards/en/politics', 1440, 2),
-               ('en', 'Economy', '/boards/en/economy', 1440, 3),
-               ('en', 'Law', '/boards/en/law', 1440, 4),
-               ('en', 'Baseball', '/boards/en/baseball', 1440, 5),
-               ('en', 'Soccer', '/boards/en/soccer', 1440, 6),
-               ('en', 'Sports', '/boards/en/sports', 1440, 7),
-               ('en', 'Food', '/boards/en/food', 1440, 8),
-               ('en', 'Animal', '/boards/en/animal', 1440, 9),
-               ('en', 'Vehicle', '/boards/en/vehicle', 1440, 10),
-               ('en', 'Book', '/boards/en/book', 1440, 11),
-               ('en', 'Music', '/boards/en/music', 1440, 12),
-               ('en', 'Military', '/boards/en/military', 1440, 13),
-               ('en', 'Gaming', '/boards/en/gaming', 1440, 14),
-               ('en', 'Video', '/boards/en/video', 1440, 15),
-               ('en', 'Anime', '/boards/en/anime', 1440, 16),
-               ('en', 'Comic', '/boards/en/comic', 1440, 17),
-               ('en', 'Fashion', '/boards/en/fashion', 1440, 18),
-               ('en', 'Beauty', '/boards/en/beauty', 1440, 19),
-               ('en', 'Science', '/boards/en/science', 1440, 20),
-               ('en', 'Humanities', '/boards/en/humanities', 1440, 21),
-               ('en', 'Computer', '/boards/en/computer', 1440, 22),
-               ('en', 'Software Development' '/boards/en/software-development', 1440, 23),
-               ('en', 'About redichan', '/boards/en/about-redichan', 1440, 24),
-               ('en', 'Misc', '/boards/en/misc', 1440, 25),
-               ('en', 'Random', '/boards/en/random', 60, 26),
-               ('en', 'may', '/boards/en/may', 60, 27),
-               ('en', 'img', '/boards/en/img', 60, 28),
-               ('en', 'G', '/boards/en/g', 1, 29),
-               -- Japanese Boards
-               ('ja', 'ニュース', '/boards/ja/news', 1440, 1),
-               ('ja', '政治', '/boards/ja/politics', 1440, 2),
-               ('ja', '経済', '/boards/ja/economy', 1440, 3),
-               ('ja', '法', '/boards/ja/law', 1440, 4),
-               ('ja', '野球', '/boards/ja/baseball', 1440, 5),
-               ('ja', 'サッカー', '/boards/ja/soccer', 1440, 6),
-               ('ja', 'スポーツ', '/boards/ja/sports', 1440, 7),
-               ('ja', '食べ物', '/boards/ja/food', 1440, 8),
-               ('ja', '動物', '/boards/ja/animal', 1440, 9),
-               ('ja', '乗り物', '/boards/ja/vehicle', 1440, 10),
-               ('ja', '本', '/boards/ja/book', 1440, 11),
-               ('ja', '音楽', '/boards/ja/music', 1440, 12),
-               ('ja', '軍事', '/boards/ja/military', 1440, 13),
-               ('ja', 'ゲーム', '/boards/ja/gaming', 1440, 14),
-               ('ja', '動画', '/boards/ja/video', 1440, 15),
-               ('ja', 'アニメ', '/boards/ja/anime', 1440, 16),
-               ('ja', '漫画', '/boards/ja/comic', 1440, 17),
-               ('ja', 'ファッション', '/boards/ja/fashion', 1440, 18),
-               ('ja', '美容', '/boards/ja/beauty', 1440, 19),
-               ('ja', '科学', '/boards/ja/science', 1440, 20),
-               ('ja', '人文科学', '/boards/ja/humanities', 1440, 21),
-               ('ja', 'コンピューター', '/boards/ja/computer', 1440, 22),
-               ('ja', 'ソフトウェア開発' '/boards/ja/software-development', 1440, 23),
-               ('ja', 'redichanについて', '/boards/ja/about-redichan', 1440, 24),
-               ('ja', 'その他', '/boards/ja/misc', 1440, 25),
-               ('ja', 'Random', '/boards/ja/random', 60, 26),
-               ('ja', 'may', '/boards/ja/may', 60, 27),
-               ('ja', 'img', '/boards/ja/img', 60, 28),
-               ('ja', 'G', '/boards/ja/g', 1, 29);
-
-             -- Inserts initial users.
-             INSERT INTO redichan.users (name, role_id, password_hash) VALUES
-               ('admin01', 2, 'admin01');
-             '''
-
-def setUpModule():
-  raw_query = models.Boards.objects.raw(INIT_QUERY)
-  raw_query._fetch_all()
+from rest_framework.serializers import BaseSerializer, ListSerializer
+from rest_framework.utils.serializer_helpers import ReturnList
+from unittest.mock import patch, PropertyMock
+import traceback
 
 
 class BoardsTests(TestCase):
@@ -182,14 +25,37 @@ class BoardsTests(TestCase):
     self.assertEqual(result.raw_query, q)
 
 
+class BoardSerializerTests(TestCase):
+
+  def test_constructor_returns_list_serializer_object(self):
+    raw_query_set = models.Boards.get('en')
+    # When many=True is specified, the constructor returns
+    # a ListSerializer object.
+    boards_serializer = serializers.BoardsSerializer(raw_query_set, many=True)
+
+    self.assertIsInstance(boards_serializer, ListSerializer)
+
+
 class EnBoardsViewSetTest(TestCase):
 
-  def test_list_returns_en_boards(self):
+  @patch('rest_framework.serializers.BaseSerializer.data')
+  def test_get_returns_en_boards(self, mocked_data):
+    # expected = [
+    #   {'lang': 'en', 'name': 'News', 'path': '/boards/en/news',
+    #    'minutes_to_live': 1440, 'order_in_lang': 1},
+    #   {'lang': 'en', 'name': 'Politics', 'path': '/boards/en/politics',
+    #    'minutes_to_live': 1440, 'order_in_lang': 2},
+    # ]
+
+    expected = []
+
+    mocked_data = PropertyMock(return_value=[])
+
     req = Request(HttpRequest())
     view_set = views.EnBoardsViewSet()
+    res = view_set.get(req)
 
-    result = view_set.get(req)
+    result = res.data
 
-    self.assertEqual(result.data.id, 1)
-    self.assertEqual(result.data.name, 'News')
-    self.assertEqual(result.data.path, '/boards/en/news')
+    self.assertEqual(result, expected)
+

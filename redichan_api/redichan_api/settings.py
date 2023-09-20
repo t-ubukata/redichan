@@ -79,9 +79,6 @@ DATABASES = {
         'NAME': 'redichan',
         'USER': '',
         'PASSWORD': '',
-        'TEST': {
-          'NAME': 'redichan'
-        }
     }
 }
 
