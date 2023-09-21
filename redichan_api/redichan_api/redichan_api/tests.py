@@ -9,7 +9,7 @@ from unittest.mock import patch, PropertyMock
 import traceback
 
 
-class BoardsTests(TestCase):
+class BoardTests(TestCase):
 
   def test_get_returns_id_name_path(self):
     q = '''
@@ -20,7 +20,7 @@ class BoardsTests(TestCase):
 
     # Django doesn't execute a query here, just holds a raw query string
     # in a RawQuery object.
-    result = models.Boards.get('en')
+    result = models.Board.get('en')
 
     self.assertEqual(result.raw_query, q)
 
@@ -28,10 +28,10 @@ class BoardsTests(TestCase):
 class BoardSerializerTests(TestCase):
 
   def test_constructor_returns_list_serializer_object(self):
-    raw_query_set = models.Boards.get('en')
+    raw_query_set = models.Board.get('en')
     # When many=True is specified, the constructor returns
     # a ListSerializer object.
-    boards_serializer = serializers.BoardsSerializer(raw_query_set, many=True)
+    boards_serializer = serializers.BoardSerializer(raw_query_set, many=True)
 
     self.assertIsInstance(boards_serializer, ListSerializer)
 
