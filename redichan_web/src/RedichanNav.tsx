@@ -8,7 +8,7 @@ import LOGO from 'logo.svg';
 import { APIOrigin } from 'redichanUtils';
 
 interface Board {
-  id: number;
+  boardID: number;
   name: string;
   path: string;
 }
@@ -51,7 +51,7 @@ const RedichanNav = (): JSX.Element => {
             data-testid="en-boards"
           >
             {enBoards.map((enBoard) => (
-              <NavDropdown.Item as={Link} to={enBoard.path} key={enBoard.id}>
+              <NavDropdown.Item as={Link} to={enBoard.path} key={enBoard.boardID}>
                 {enBoard.name}
               </NavDropdown.Item>
             ))}
@@ -62,7 +62,7 @@ const RedichanNav = (): JSX.Element => {
             data-testid="ja-boards"
           >
             {jaBoards.map((jaBoard) => (
-              <NavDropdown.Item as={Link} to={jaBoard.path} key={jaBoard.id}>
+              <NavDropdown.Item as={Link} to={jaBoard.path} key={jaBoard.boardID}>
                 {jaBoard.name}
               </NavDropdown.Item>
             ))}

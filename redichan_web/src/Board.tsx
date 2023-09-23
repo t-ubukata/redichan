@@ -21,7 +21,7 @@ interface Props {
 }
 
 interface Thread {
-  id: number;
+  threadID: number;
   firstComment: string;
   attachmentPath: string;
   postNumber: number;
@@ -63,10 +63,10 @@ const Board = (props: Props): JSX.Element => {
       <Stack className="mb-5">
         {threads.map((thread) => (
           <Container
-            key={thread.id}
+            key={thread.threadID}
             className="bg-light border link-dark text-decoration-none"
             as={Link}
-            to={`/thread/${thread.id as unknown as string}`}
+            to={`/thread/${thread.threadID as unknown as string}`}
           >
             <Row>
               <Col className="col-10 thread-title">{thread.firstComment}</Col>

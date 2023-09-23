@@ -13,20 +13,20 @@ import Col from 'react-bootstrap/Col';
 import { APIOrigin } from 'redichanUtils';
 
 interface Post {
-  id: number;
+  postID: number;
   comment: string;
   attachmentPath: string;
   UTCTimeStamp: Date;
 }
 
 const Thread = (): JSX.Element => {
-  const { id } = useParams();
-  // id's type is strig | undifined.
-  if (id === undefined) {
+  const { threadID } = useParams();
+  // threadID's type is strig | undifined.
+  if (threadID === undefined) {
     throw new TypeError(`Expected 'id' to be defined, but received undefined`);
   }
 
-  const threadURI = `${APIOrigin}/api/thread/${id}`;
+  const threadURI = `${APIOrigin}/api/thread/${threadID}`;
 
   const [thread, setThread] = useState(new Array<Post>());
 
@@ -37,18 +37,18 @@ const Thread = (): JSX.Element => {
       setThread(result);
     };
     fetchThread().catch((err) => consola.error(err));
-  }, [id]);
+  }, [threadID]);
 
-  const postPath = `/thread/${id}/post`;
+  const postPath = `/thread/${threadID}/post`;
 
   return (
     <div className="mx-auto">
       <RedichanNav />
       <Stack className="mb-5">
         {thread.map((post) => (
-          <Container key={post.id} className="bg-light border">
+          <Container key={post.postID} className="bg-light border">
             <Row>
-              <Col>{post.id}</Col>
+              <Col>{post.postID}</Col>
             </Row>
             <Row>
               <Col className="post-text">{post.comment}</Col>

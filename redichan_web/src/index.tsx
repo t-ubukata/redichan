@@ -22,8 +22,8 @@ root.render(
         path="/board/:lang/:shortBoardName/start-thread"
         element={<StartThread />}
       />
-      <Route path="/thread/:id" element={<Thread />} />
-      <Route path="/thread/:id/post" element={<Post />} />
+      <Route path="/thread/:threadID" element={<Thread />} />
+      <Route path="/thread/:threadID/post" element={<Post />} />
     </Routes>
   </BrowserRouter>
 );
