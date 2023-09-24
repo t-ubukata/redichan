@@ -25,7 +25,7 @@ interface Thread {
   firstComment: string;
   attachmentPath: string;
   postNumber: number;
-  UTCTimestamp: Date;
+  createdAt: Date;
 }
 
 const Board = (props: Props): JSX.Element => {

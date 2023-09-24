@@ -16,7 +16,7 @@ interface Post {
   postID: number;
   comment: string;
   attachmentPath: string;
-  UTCTimeStamp: Date;
+  createdAt: Date;
 }
 
 const Thread = (): JSX.Element => {
