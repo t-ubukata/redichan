@@ -3,36 +3,36 @@ CREATE DATABASE redichan;
 
 -- Creates tables.
 CREATE TABLE redichan.boards (
-  board_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  board_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   language VARCHAR(2) NOT NULL,
-  name VARCHAR(32) NOT NULL UNIQUE,
+  name VARCHAR(32) NOT NULL,
   path VARCHAR(64) NOT NULL UNIQUE,
   minutes_to_live INTEGER NOT NULL,
   order_in_lang INTEGER NOT NULL
 );
 
 CREATE TABLE redichan.user_role_types (
-  role_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_role_type_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   type VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.user_status_types (
-  user_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_status_type_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.thread_status_types (
-  thread_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  thread_status_type_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.post_status_types (
-  post_status_type_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  post_status_type_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   status VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE redichan.users (
-  user_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(16) NOT NULL UNIQUE,
   role_id INTEGER NOT NULL UNIQUE,
   password_hash VARCHAR(32) NOT NULL,
@@ -40,33 +40,33 @@ CREATE TABLE redichan.users (
 );
 
 CREATE TABLE redichan.threads (
-  thread_id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  thread_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   board_id INTEGER NOT NULL UNIQUE,
   status_id INTEGER NOT NULL UNIQUE,
-  FOREIGN KEY (board_id) REFERENCES boards(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (board_id) REFERENCES boards(board_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (status_id) REFERENCES thread_status_types(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE redichan.posts (
-  post_id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  number INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+  post_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  post_number INTEGER NOT NULL,
   thread_id INTEGER NOT NULL UNIQUE,
   poster_id INTEGER NOT NULL UNIQUE,
-  comment VARCHAR(2000) NOT NULL,
+  post_comment VARCHAR(2000) NOT NULL,
   attachment_path VARCHAR(64) NOT NULL,
   status_id INTEGER NOT NULL UNIQUE,
-  utc_timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (thread_id) REFERENCES threads(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  created_at DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  FOREIGN KEY (thread_id) REFERENCES thread_status_types(thread_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (poster_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (status_id) REFERENCES post_status_types(post_status_type_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Creates and grants users.
 CREATE USER `admin`@`localhost` IDENTIFIED BY 'admin';
-GRANT ALL on redichan.* TO admin@localhost IDENTIFIED BY 'admin';
+GRANT ALL on redichan.* TO admin@localhost;
 
 CREATE USER `app`@`localhost` IDENTIFIED BY 'app';
-GRANT SELECT, INSERT, UPDATE, DELETE on redichan.* TO app@localhost IDENTIFIED BY 'app';
+GRANT SELECT, INSERT, UPDATE, DELETE on redichan.* TO app@localhost;
 
 -- Inserts user tole types.
 INSERT INTO redichan.user_role_types (type) VALUES
@@ -89,7 +89,7 @@ INSERT INTO redichan.post_status_types (status) VALUES
   ('deleted');
 
 -- Inserts initial data.
-INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) VALUES
+INSERT INTO redichan.boards (language, name, path, minutes_to_live, order_in_lang) VALUES
   -- English Boards
   ('en', 'News', '/boards/en/news', 1440, 1),
   ('en', 'Politics', '/boards/en/politics', 1440, 2),
@@ -113,7 +113,7 @@ INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) V
   ('en', 'Science', '/boards/en/science', 1440, 20),
   ('en', 'Humanities', '/boards/en/humanities', 1440, 21),
   ('en', 'Computer', '/boards/en/computer', 1440, 22),
-  ('en', 'Software Development' '/boards/en/software-development', 1440, 23),
+  ('en', 'Software Development', '/boards/en/software-development', 1440, 23),
   ('en', 'About redichan', '/boards/en/about-redichan', 1440, 24),
   ('en', 'Misc', '/boards/en/misc', 1440, 25),
   ('en', 'Random', '/boards/en/random', 60, 26),
@@ -143,7 +143,7 @@ INSERT INTO redichan.boards (lang, name, path, minutes_to_live, order_in_lang) V
   ('ja', '科学', '/boards/ja/science', 1440, 20),
   ('ja', '人文科学', '/boards/ja/humanities', 1440, 21),
   ('ja', 'コンピューター', '/boards/ja/computer', 1440, 22),
-  ('ja', 'ソフトウェア開発' '/boards/ja/software-development', 1440, 23),
+  ('ja', 'ソフトウェア開発', '/boards/ja/software-development', 1440, 23),
   ('ja', 'redichanについて', '/boards/ja/about-redichan', 1440, 24),
   ('ja', 'その他', '/boards/ja/misc', 1440, 25),
   ('ja', 'Random', '/boards/ja/random', 60, 26),
