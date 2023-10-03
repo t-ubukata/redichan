@@ -16,7 +16,7 @@ interface Post {
   postID: number;
   comment: string;
   attachmentPath: string;
-  createdAt: Date;
+  createdAtUTC: Date;
 }
 
 const Thread = (): JSX.Element => {
@@ -34,6 +34,10 @@ const Thread = (): JSX.Element => {
     const fetchThread = async () => {
       const response = await fetch(threadURI);
       const result = (await response.json()) as Array<Post>;
+
+      // debug
+      consola.info(result[0].createdAtUTC);
+
       setThread(result);
     };
     fetchThread().catch((err) => consola.error(err));

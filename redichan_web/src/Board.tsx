@@ -25,7 +25,7 @@ interface Thread {
   firstComment: string;
   attachmentPath: string;
   postNumber: number;
-  createdAt: Date;
+  createdAtUTC: Date;
 }
 
 const Board = (props: Props): JSX.Element => {
@@ -48,6 +48,10 @@ const Board = (props: Props): JSX.Element => {
     const fetchThreads = async () => {
       const response = await fetch(threadsURI);
       const result = (await response.json()) as Array<Thread>;
+
+      // debug
+      consola.info(result[0].createdAtUTC);
+
       setThreads(result);
     };
     fetchThreads().catch((err) => consola.error(err));
