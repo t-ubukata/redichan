@@ -9,6 +9,33 @@ from unittest.mock import patch, PropertyMock
 import traceback
 
 
+class BoardTests(TestCase):
+
+  def test_get_returns_id_name_path(self):
+    q = '''
+        SELECT board_id AS boardID, name, path FROM redichan.boards
+          WHERE language = %s
+          ORDER BY order_in_lang
+        '''
+
+    # Django doesn't execute a query here, just holds a raw query string
+    # in a RawQuery object.
+    result = models.Board.get('en')
+
+    self.assertEqual(result.raw_query, q)
+
+
+class BoardSerializerTests(TestCase):
+
+  def test_constructor_returns_list_serializer_object(self):
+    raw_query_set = models.Board.get('en')
+    # When many=True is specified, the constructor returns
+    # a ListSerializer object.
+    boards_serializer = serializers.BoardSerializer(raw_query_set, many=True)
+
+    self.assertIsInstance(boards_serializer, ListSerializer)
+
+
 class EnBoardsViewSetTest(TestCase):
 
   @patch('rest_framework.serializers.BaseSerializer.data')

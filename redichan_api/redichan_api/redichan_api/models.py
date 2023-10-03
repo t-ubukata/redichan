@@ -20,8 +20,8 @@ class Board(models.Model):
 
 class Thread(models.Model):
   threadID = models.IntegerField(primary_key=True)
-  firstComment = models.CharField()
-  attachmentPath = models.CharField()
+  firstComment = models.CharField(max_length=2000)
+  attachmentPath = models.CharField(max_length=64)
   postNumber = models.IntegerField()
   createdAtUTC = models.DateTimeField()
 
